@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Eagle Wash - Accueil</title>
+  <style>
+    :root {
+      --gold: #D4AF37;
+      --white: #ffffff;
+      --black: #111111;
+      --gray: #f5f5f5;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    body {
+      background-color: var(--white);
+      color: var(--black);
+    }
+
+    header {
+      background-color: var(--white);
+      padding: 20px;
+      text-align: center;
+      border-bottom: 2px solid var(--gold);
+    }
+
+    header h1 {
+      color: var(--gold);
+      font-size: 2.5rem;
+      letter-spacing: 2px;
+    }
+
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      margin-top: 10px;
+      flex-wrap: wrap;
+    }
+
+    nav a {
+      color: var(--black);
+      text-decoration: none;
+      font-weight: bold;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+      color: var(--gold);
+    }
+
+    .hero {
+      background: linear-gradient(to bottom right, #fff, #f8f4eb);
+      padding: 60px 20px;
+      text-align: center;
+    }
+
+    .hero h2 {
+      color: var(--gold);
+      font-size: 2.2rem;
+      margin-bottom: 15px;
+    }
+
+    .hero p {
+      font-size: 1.1rem;
+      max-width: 700px;
+      margin: auto;
+      color: #333;
+    }
+
+    .cta {
+      margin-top: 30px;
+    }
+
+    .cta a {
+      background-color: var(--gold);
+      color: var(--white);
+      text-decoration: none;
+      padding: 12px 25px;
+      font-weight: bold;
+      border-radius: 5px;
+      transition: background-color 0.3s ease;
+    }
+
+    .cta a:hover {
+      background-color: #c89b2c;
+    }
+
+    .section {
+      padding: 60px 20px;
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    .section h3 {
+      color: var(--gold);
+      font-size: 1.8rem;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .section p {
+      text-align: center;
+      font-size: 1.05rem;
+      color: #333;
+      max-width: 800px;
+      margin: auto;
+    }
+
+    .values {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 30px;
+      margin-top: 40px;
+    }
+
+    .value-item {
+      width: 250px;
+      background-color: var(--white);
+      border: 1px solid var(--gold);
+      padding: 20px;
+      border-radius: 10px;
+      text-align: center;
+      box-shadow: 0 0 10px rgba(212, 175, 55, 0.1);
+    }
+
+    .value-item h4 {
+      color: var(--gold);
+      margin-bottom: 10px;
+    }
+
+    footer {
+      background-color: var(--white);
+      color: var(--black);
+      text-align: center;
+      padding: 20px;
+      border-top: 2px solid var(--gold);
+      margin-top: 40px;
+    }
+
+    @media (max-width: 768px) {
+      nav {
+        flex-direction: column;
+        gap: 15px;
+      }
+
+      .values {
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+
+.topbar, .bottombar {
+  background-color: var(--black);
+  color: var(--white);
+  padding: 10px 20px;
+  font-size: 0.9rem;
+}
+
+.topbar-nav {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.topbar-nav a {
+  color: var(--white);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.topbar-nav a:hover {
+  color: var(--gold);
+}
+
+.bottombar {
+  text-align: center;
+  font-size: 0.85rem;
+  border-top: 2px solid var(--gold);
+  margin-top: 40px;
+}
+.presentation {
+  max-width: 1000px;
+  margin: 60px auto;
+  display: flex;
+  flex-direction: column;
+  gap: 60px;
+}
+
+.bloc {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 30px;
+}
+
+.bloc:nth-child(even) {
+  flex-direction: row-reverse;
+}
+
+.bloc-img img {
+  width: 320px;
+  border-radius: 12px;
+}
+
+.bloc-texte {
+  flex: 1;
+  min-width: 250px;
+}
+
+.bloc-texte .numero {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: var(--gold);
+  display: block;
+  margin-bottom: 10px;
+}
+
+.bloc-texte h3 {
+  font-size: 1.6rem;
+  margin-bottom: 10px;
+  color: var(--black);
+}
+
+.bloc-texte p {
+  font-size: 1rem;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.bloc-texte a {
+  color: var(--black);
+  font-weight: bold;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.bloc-texte a:hover {
+  color: var(--gold);
+}
+.intro-message {
+  max-width: 500px;
+  margin: 30px auto;
+  text-align: center;
+  font-size: 0.8rem; /* plus petit que 0.95rem */
+  color: #777; /* un gris un peu plus doux */
+  line-height: 1.5;
+}
+.brand-title {
+  font-size: 3rem; /* Plus grand */
+  font-weight: 700;
+  letter-spacing: 2px;
+  color: var(--gold);
+  text-align: center;
+  margin: 0 auto;
+  font-family: 'Georgia', serif; /* ou une autre police élégante */
+  text-transform: uppercase;
+}
+.brand-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  padding: 10px 0;
+}
+
+.logo-header {
+  width: 125px; /* Taille du logo */
+  height: auto;
+  object-fit: contain;
+}
+.social-overlay {
+  position: fixed;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  background-color: rgba(0, 0, 0, 0.92);
+  padding: 16px 12px;
+  border-top-left-radius: 12px;
+  border-bottom-left-radius: 12px;
+  box-shadow: -4px 0 12px rgba(0, 0, 0, 0.4);
+  border-left: 2px solid var(--gold);
+}
+
+.social-overlay a {
+  color: var(--gold);
+  font-size: 1.7rem;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.social-overlay a:hover {
+  transform: scale(1.25);
+  color: #ffd700;
+}
+.contact-info {
+  background-color: var(--gold);
+  color: var(--white);
+  padding: 40px 20px;
+  max-width: 1000px;
+  margin: 40px auto 20px auto;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(212, 175, 55, 0.3);
+  text-align: center;
+}
+
+.contact-info h3 {
+  font-size: 2rem;
+  margin-bottom: 25px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+}
+
+.contact-details {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 30px;
+}
+
+.contact-details div {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 1.1rem;
+  min-width: 180px;
+  justify-content: center;
+}
+
+.contact-details i {
+  font-size: 1.5rem;
+}
+  
+@media (max-width: 600px) {
+  .contact-details {
+    flex-direction: column;
+    gap: 20px;
+  }
+}
+.cta-devis {
+  text-align: center;
+  margin: 60px auto 40px;
+}
+.btn-devis {
+  display: inline-block;
+  background-color: var(--gold);
+  color: white;
+  padding: 14px 28px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  text-decoration: none;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(212, 175, 55, 0.3);
+  transition: all 0.3s ease;
+}
+@media (max-width: 768px) {
+  .bloc {
+    flex-direction: column !important;
+    align-items: center;
+    text-align: center;
+  }
+
+  .bloc-img img {
+    width: 100%;
+    max-width: 300px;
+  }
+
+  .bloc-texte {
+    width: 100%;
+  }
+}
+@media (max-width: 768px) {
+  .bloc {
+    flex-direction: column !important;
+    align-items: center;
+    text-align: center;
+  }
+
+  .bloc-img img {
+    width: 100%;
+    max-width: 300px;
+  }
+
+  .bloc-texte {
+    width: 100%;
+  }
+
+  .btn-devis {
+    width: 90%;
+    font-size: 1rem;
+  }
+
+  .topbar-nav {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .brand-header {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .logo-header {
+    width: 100px;
+  }
+}
+
+
+  </style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="brand-header">
+  <img src="image/logo_EAGL_WASH_DETOURER.png" alt="Logo Eagle Wash" class="logo-header" />
+  <h1 class="brand-title">Eagle Wash</h1>
+</div>
+
+  <nav class="topbar-nav">
+    <a href="index.html">Accueil</a>
+    <a href="services.html.html">Services</a>
+   <a href="about.html.html">À propos</a>
+    <a href="contact.html.html">Contact</a>
+  </nav>
+</div>
+
+<br>
+
+</br>
+<br>
+</br>
+<div class="intro-message">
+  <p>Chez Eagle Wash, nous allions passion automobile et expertise technique pour vous proposer un éventail de prestations haut de gamme.</p>
+  <p>Nous sommes à votre disposition pour des services de nettoyage professionnel, réalisé avec soin et précision.</p>
+  <p>Avec un sens aigü du détail et un engagement envers l’excellence, nous veillons à ce que votre voiture brille à l’intérieur comme à l’extérieur.</p>
+  <p>
+    <a href="contact.html.html" style="color: var(--gold); text-decoration: underline; font-weight: bold;">
+      Contactez-moi
+    </a> pour une voiture d’une propreté éclatante.
+  </p>
+</div>
+
+<br>
+
+
+</br>
+
+
+ <section class="presentation">
+  <div class="bloc bloc-01">
+    <div class="bloc-img">
+      <img src="image/dashboard wax.jpg" alt="Roue chromée" />
+    </div>
+    <div class="bloc-texte">
+      <span class="numero">01</span>
+      <h3>À propos</h3>
+      <p>Découvrez nos engagements pour une qualité de nettoyage irréprochable à chaque intervention, portée par notre passion pour l'automobile.</p>
+      <a href="about.html.html">APPRENDRE ENCORE PLUS →</a>
+    </div>
+  </div>
+
+  <div class="bloc bloc-02">
+    <div class="bloc-img">
+      <img src="image/fa849da5e31eeaa96d2dcccffdf9cd4b.jpg" alt="Intérieur de voiture" />
+    </div>
+    <div class="bloc-texte">
+      <span class="numero">02</span>
+      <h3>Mes tarifs & services</h3>
+      <p>Explorez les différentes formules de lavage et detailing conçues pour valoriser et protéger votre véhicule.</p>
+      <a href="services.html.html">EN SAVOIR PLUS →</a>
+    </div>
+  </div>
+
+  <div class="bloc bloc-03">
+    <div class="bloc-img">
+      <img src="image/nettoyage injecteur.jpg" alt="Nettoyage de pneu" />
+    </div>
+    <div class="bloc-texte">
+      <span class="numero">03</span>
+      <h3>Contactez-moi</h3>
+      <p>Besoin d’un devis, d’un conseil ou d’un rendez-vous ? Je suis à votre écoute pour toute demande personnalisée.</p>
+      <a href="contact.html.html">CONTACTEZ MAINTENANT →</a>
+    </div>
+  </div>
+</section>
+
+  
+<br>
+</br>
+<br>
+</br>
+
+<div class="cta-devis">
+  <a href="contact.html.html" class="btn-devis">Créer mon devis</a>
+</div>
+
+ 
+<section class="contact-info">
+  <h3>Contactez-nous</h3>
+  <div class="contact-details">
+    <div>
+      <i class="fas fa-phone-alt"></i>
+      <p>+33 06 37 20 35 67 </p>
+    </div>
+    <div>
+      <i class="fas fa-envelope"></i>
+      <p>eaglewash68@gmail.com</p>
+    </div>
+    <div>
+      <i class="fas fa-clock"></i>
+      <p>7j/7 : 8h - 20h </p>
+    </div>
+  </div>
+</section>
+<div class="bottombar">
+  <p>
+    &copy; 2025 Eagle Wash — Tous droits réservés |
+    <a href="mentions-legales.html">Mentions légales</a> |
+    <a href="politique-confidentialite.html">Politique de confidentialité</a> |
+    <a href="cgu.html">CGU</a>
+  </p>
+</div>
+
+<!-- À placer juste avant </body> -->
+<div class="social-overlay">
+  <a href=https://www.facebook.com/profile.php?id=61578640844641 target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+  <a href=https://www.instagram.com/eaglewash688/ target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+  <a href=https://www.tiktok.com/@eaglewash68 target="_blank" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+</div>
+
+<!-- N'oublie pas Font Awesome dans le <head> si pas déjà présent -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-..." crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+
+</body>
+</html>
+
