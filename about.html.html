@@ -37,24 +37,44 @@
       letter-spacing: 2px;
     }
 
-    nav {
-      display: flex;
-      justify-content: center;
-      gap: 30px;
-      margin-top: 10px;
-      flex-wrap: wrap;
-    }
+      nav.topbar-nav {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  margin-top: 15px;
+}
 
-    nav a {
-      color: var(--black);
-      text-decoration: none;
-      font-weight: bold;
-      transition: color 0.3s ease;
-    }
+nav.topbar-nav a {
+  position: relative;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--gold);
+  text-decoration: none;
+  letter-spacing: 1px;
+  padding: 6px 0;
+  transition: color 0.3s ease;
+}
 
-    nav a:hover {
-      color: var(--gold);
-    }
+nav.topbar-nav a::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 0%;
+  height: 1.5px;
+  background-color: var(--white);
+  transition: all 0.3s ease;
+  transform: translateX(-50%);
+}
+
+nav.topbar-nav a:hover {
+  color: var(--gold);
+}
+
+nav.topbar-nav a:hover::after {
+  width: 60%;
+}
+
 
     .hero {
       background: linear-gradient(to bottom right, #fff, #f8f4eb);

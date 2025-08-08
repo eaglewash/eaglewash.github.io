@@ -104,14 +104,52 @@
     a.btn-retour:hover {
       background-color: #c89b2c;
     }
+  nav.topbar-nav {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  margin-top: 15px;
+}
+
+nav.topbar-nav a {
+  position: relative;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--gold);
+  text-decoration: none;
+  letter-spacing: 1px;
+  padding: 6px 0;
+  transition: color 0.3s ease;
+}
+
+nav.topbar-nav a::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 0%;
+  height: 1.5px;
+  background-color: var(--white);
+  transition: all 0.3s ease;
+  transform: translateX(-50%);
+}
+
+nav.topbar-nav a:hover {
+  color: var(--gold);
+}
+
+nav.topbar-nav a:hover::after {
+  width: 60%;
+}
+
+
   </style>
 </head>
 <body>
 
 <div class="topbar">
   <div class="brand-header">
-    <img src="C:\Users\quent\OneDrive\Desktop\eagle wash\logo_EAGL_WASH_DETOURER.png" alt="Logo Eagle Wash" class="logo-header" />
-    <h1 class="brand-title">Eagle Wash</h1>
+   <h1 class="brand-title">Eagle Wash</h1>
   </div>
   <nav class="topbar-nav">
     <a href="index.html.html">Accueil</a>

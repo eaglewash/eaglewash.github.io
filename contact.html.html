@@ -37,24 +37,44 @@
       letter-spacing: 2px;
     }
 
-    nav {
-      display: flex;
-      justify-content: center;
-      gap: 30px;
-      margin-top: 10px;
-      flex-wrap: wrap;
-    }
+      nav.topbar-nav {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  margin-top: 15px;
+}
 
-    nav a {
-      color: var(--black);
-      text-decoration: none;
-      font-weight: bold;
-      transition: color 0.3s ease;
-    }
+nav.topbar-nav a {
+  position: relative;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--gold);
+  text-decoration: none;
+  letter-spacing: 1px;
+  padding: 6px 0;
+  transition: color 0.3s ease;
+}
 
-    nav a:hover {
-      color: var(--gold);
-    }
+nav.topbar-nav a::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 0%;
+  height: 1.5px;
+  background-color: var(--white);
+  transition: all 0.3s ease;
+  transform: translateX(-50%);
+}
+
+nav.topbar-nav a:hover {
+  color: var(--gold);
+}
+
+nav.topbar-nav a:hover::after {
+  width: 60%;
+}
+
 
     .hero {
       background: linear-gradient(to bottom right, #fff, #f8f4eb);
@@ -442,10 +462,43 @@ label span a {
 </div>
     <h2>Réserver un Lavage</h2>
     <form id="contactForm">
-      <input type="text" name="nom" placeholder="Votre nom" required />
-      <input type="email" name="email" placeholder="Votre email" required />
-      <input type="tel" name="tel" placeholder="Téléphone" required />
-      <input type="date" name="date" required /> 
+      <input type="text" name="nom" placeholder="Votre Nom et Prénom" required />
+      <input type="email" name="email" placeholder="Votre adresse email" required />
+      <input type="tel" name="tel" placeholder="Votre numero de Téléphone" required />
+   <div style="display: flex; justify-content: center; margin-bottom: 15px;">
+  <div style="border: 2px solid var(--gold); padding: 15px; border-radius: 8px; background-color: #fff; max-width: 400px; width: 100%;">
+
+    <!-- Sélection de la date -->
+    <label for="date-lavage" style="display:block; font-weight:bold; color:var(--gold); margin-bottom:8px; font-size:1.1rem; text-align:center;">
+      📅 Date souhaitée pour le lavage
+    </label>
+    <input 
+      type="date" 
+      id="date-lavage" 
+      name="date" 
+      required 
+      style="padding: 12px; border: 1px solid var(--gold); border-radius: 6px; width: 100%; font-size: 1rem; background-color: #fdfdfd; color: #333; margin-bottom:15px;"
+    >
+
+    <!-- Sélection de l'heure -->
+    <label for="heure-lavage" style="display:block; font-weight:bold; color:var(--gold); margin-bottom:8px; font-size:1.1rem; text-align:center;">
+      ⏰ Heure souhaitée
+    </label>
+    <input 
+      type="time" 
+      id="heure-lavage" 
+      name="heure" 
+      required 
+      style="padding: 12px; border: 1px solid var(--gold); border-radius: 6px; width: 100%; font-size: 1rem; background-color: #fdfdfd; color: #333;"
+    >
+
+    <!-- Texte explicatif -->
+    <p style="color:#777; font-size:0.9rem; margin-top:8px; text-align:center;">
+      Sélectionnez la date et l'heure auxquelles vous souhaitez que le lavage soit effectué.
+    </p>
+
+  </div>
+</div>
       <input type="hidden" name="categorie" id="categorie" required />
      <div id="choix-categorie" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px;">
   <div class="categorie-option" data-value="Pack Éco – Citadine">🚗 Citadine</div>
@@ -522,73 +575,67 @@ label span a {
 </div>
 
 <!-- N'oublie pas Font Awesome dans le <head> si pas déjà présent -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
 
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-..." crossorigin="anonymous" referrerpolicy="no-referrer" />
 
- <script>
-window.addEventListener("load", () => {
-  // Gestion du choix de catégorie - IMPORTANT : hors du catch, dès le chargement
-  document.querySelectorAll('.categorie-option').forEach(option => {
-    option.addEventListener('click', () => {
-      document.querySelectorAll('.categorie-option').forEach(opt => opt.classList.remove('selected'));
-      option.classList.add('selected');
-      document.getElementById('categorie').value = option.getAttribute('data-value');
-      console.log('Catégorie choisie:', document.getElementById('categorie').value);
+<script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+<script>
+  (function(){
+    emailjs.init("pZzXEWP66OUMYX1u6"); // Remplace par ta clé publique EmailJS
+  })();
+
+  window.addEventListener("load", () => {
+    // Gestion du choix de catégorie
+    document.querySelectorAll('.categorie-option').forEach(option => {
+      option.addEventListener('click', () => {
+        document.querySelectorAll('.categorie-option').forEach(opt => opt.classList.remove('selected'));
+        option.classList.add('selected');
+        document.getElementById('categorie').value = option.getAttribute('data-value');
+        console.log('Catégorie choisie:', document.getElementById('categorie').value);
+      });
+    });
+
+    const form = document.getElementById("contactForm");
+    const confirmationMessage = document.getElementById("confirmationMessage");
+
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+      confirmationMessage.style.display = "none"; // cache le message précédent
+
+      const acceptCharte = document.getElementById("acceptCharte");
+      if (!acceptCharte.checked) {
+        confirmationMessage.style.background = "#e53935"; // rouge
+        confirmationMessage.innerText = "Vous devez accepter la charte avant d'envoyer le formulaire.";
+        confirmationMessage.style.display = "block";
+        return;
+      }
+
+      if (!document.getElementById('categorie').value) {
+        confirmationMessage.style.background = "#e53935"; // rouge
+        confirmationMessage.innerText = "Veuillez choisir un pack avant d'envoyer le formulaire.";
+        confirmationMessage.style.display = "block";
+        return;
+      }
+
+      // Envoi via EmailJS
+      emailjs.sendForm('service_7forll2', 'template_gs83geb', this)
+        .then(() => {
+          confirmationMessage.style.background = "#4caf50"; // vert
+          confirmationMessage.innerText = "✅ Merci pour votre réservation ! Nous avons bien reçu votre demande et vous serez contacté dans les plus brefs délais.";
+          confirmationMessage.style.display = "block";
+          form.reset();
+          document.querySelectorAll('.categorie-option').forEach(opt => opt.classList.remove('selected'));
+        }, (error) => {
+          confirmationMessage.style.background = "#e53935"; // rouge
+          confirmationMessage.innerText = "Erreur lors de l'envoi du formulaire. Veuillez réessayer plus tard.";
+          confirmationMessage.style.display = "block";
+          console.error('EmailJS error:', error);
+        });
     });
   });
-
-  // Initialisation EmailJS
-  emailjs.init("pZzXEWP66OUMYX1u6");
-
-  const form = document.getElementById("contactForm");
-  const confirmationMessage = document.getElementById("confirmationMessage");
-
-  form.addEventListener("submit", function (e) {
-    e.preventDefault();
-    confirmationMessage.style.display = "none"; // cache le message précédent au début
-
-    const acceptCharte = document.getElementById("acceptCharte");
-    if (!acceptCharte.checked) {
-      confirmationMessage.style.background = "#e53935"; // rouge
-      confirmationMessage.innerText = "Vous devez accepter la charte avant d'envoyer le formulaire.";
-      confirmationMessage.style.display = "block";
-      return;
-    }
-
-    if (!document.getElementById('categorie').value) {
-      confirmationMessage.style.display = "block";
-      confirmationMessage.style.background = "#e53935"; // rouge
-      confirmationMessage.innerText = "Veuillez choisir un pack avant d'envoyer le formulaire.";
-      return;
-    }
-
-    emailjs.sendForm("service_7forll2", "template_gs83geb", this)
-      .then(function (response) {
-        console.log('Email envoyé, réponse:', response);
-        confirmationMessage.innerText = "✅ Merci pour votre réservation ! Nous avons bien reçu votre demande.";
-        confirmationMessage.style.background = "#4caf50"; // vert
-        confirmationMessage.style.display = "block";
-        confirmationMessage.style.opacity = 1;
-        setTimeout(() => {
-          confirmationMessage.style.opacity = 0;
-          setTimeout(() => confirmationMessage.style.display = "none", 500);
-        }, 5000);
-        form.reset();
-        document.querySelectorAll('.categorie-option').forEach(opt => opt.classList.remove('selected'));
-        document.getElementById('categorie').value = "";
-      })
-      .catch(function (error) {
-        console.error('Erreur lors de l’envoi:', error);
-        confirmationMessage.innerText = "❌ Une erreur est survenue lors de l’envoi du formulaire. Veuillez réessayer plus tard.";
-        confirmationMessage.style.background = "#e53935"; // rouge
-        confirmationMessage.style.display = "block";
-      });
-  });
-});
 </script>
-
 </body>
 </html>
 

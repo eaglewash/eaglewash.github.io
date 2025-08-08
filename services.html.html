@@ -37,24 +37,44 @@
       letter-spacing: 2px;
     }
 
-    nav {
-      display: flex;
-      justify-content: center;
-      gap: 30px;
-      margin-top: 10px;
-      flex-wrap: wrap;
-    }
+  nav.topbar-nav {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  margin-top: 15px;
+}
 
-    nav a {
-      color: var(--black);
-      text-decoration: none;
-      font-weight: bold;
-      transition: color 0.3s ease;
-    }
+nav.topbar-nav a {
+  position: relative;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--gold);
+  text-decoration: none;
+  letter-spacing: 1px;
+  padding: 6px 0;
+  transition: color 0.3s ease;
+}
 
-    nav a:hover {
-      color: var(--gold);
-    }
+nav.topbar-nav a::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 0%;
+  height: 1.5px;
+  background-color: var(--white);
+  transition: all 0.3s ease;
+  transform: translateX(-50%);
+}
+
+nav.topbar-nav a:hover {
+  color: var(--gold);
+}
+
+nav.topbar-nav a:hover::after {
+  width: 60%;
+}
+
 
     .hero {
       background: linear-gradient(to bottom right, #fff, #f8f4eb);
@@ -623,23 +643,27 @@ label span a {
         <th style="padding: 12px 15px; text-align: left;">Forfait</th>
         <th style="padding: 12px 15px; text-align: left;">Description</th>
         <th style="padding: 12px 15px; text-align: center;">Prix</th>
+          <th style="padding: 12px 15px; text-align: center;">Extérieur</th>
       </tr>
     </thead>
     <tbody>
       <tr style="border-bottom: 1px solid #f0e6a3;">
         <td style="padding: 12px 15px;"> Citadine</td>
         <td style="padding: 12px 15px;">Forfait adapté aux petites voitures urbaines, incluant un nettoyage complet de l'intérieur et exterieur pour un entretien rapide et efficace.</td>
-        <td style="padding: 12px 15px; text-align: center;">65€</td>
+        <td style="padding: 12px 15px; text-align: center;">85€</td>
+           <td style="padding: 12px 15px; text-align: center;">+15€</td>
       </tr>
       <tr style="border-bottom: 1px solid #f0e6a3;">
         <td style="padding: 12px 15px;"> Berline</td>
         <td style="padding: 12px 15px;">Conçu pour les véhicules de taille moyenne, ce pack comprend un nettoyage intérieur et extérieur pour un rendu soigné et complet.</td>
-        <td style="padding: 12px 15px; text-align: center;">80€</td>
+        <td style="padding: 12px 15px; text-align: center;">100€</td>
+           <td style="padding: 12px 15px; text-align: center;">+15€</td>
       </tr>
       <tr>
         <td style="padding: 12px 15px;"> Utilitaire / Luxe</td>
         <td style="padding: 12px 15px;">Pack complet destiné aux grandes voitures, utilitaires et modèles haut de gamme, avec un nettoyage détaillé et des finitions soignées.</td>
-        <td style="padding: 12px 15px; text-align: center;">100€</td>
+        <td style="padding: 12px 15px; text-align: center;">120€</td>
+           <td style="padding: 12px 15px; text-align: center;">+15€</td>
       </tr>
     </tbody>
   </table>
