@@ -428,7 +428,23 @@ label span a {
     width: 100px;
   }
 }
-
+#luxury-price {
+  margin-top: 20px;
+  padding: 15px 20px;
+  background: linear-gradient(to right, #fff, #f8f8f8);
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: 'Georgia', serif;
+  font-size: 1.4rem;
+}
+#luxury-price strong {
+  color: #d4af37; /* doré */
+  font-size: 1.8rem;
+}
 
   </style>
 </head>
@@ -460,6 +476,10 @@ label span a {
   <h3>Choisissez une date :</h3>
   <div id="calendrier-dispos" style="display: grid; grid-template-columns: repeat(7, 1fr); gap: 10px; margin-top: 10px;"></div>
 </div>
+
+
+
+
     <h2>Réserver un Lavage</h2>
     <form id="contactForm">
       <input type="text" name="nom" placeholder="Votre Nom et Prénom" required />
@@ -506,7 +526,10 @@ label span a {
   <div class="categorie-option" data-value="Pack Premium – Utilitaire / Luxe">🚐 Utilitaire / Luxe</div>
  
 </div>
-
+<label>
+  <input type="checkbox" data-nom="Supplément extérieur" data-prix="15">
+  ✨ Supplément extérieur
+</label><br>
 
 
 
@@ -517,6 +540,10 @@ label span a {
  <span>J'ai lu et j'accepte la <a href="charte.html" target="_blank" style="color: var(--secondary); text-decoration: underline;">charte de services</a></span>
 
 </label>
+<div id="luxury-price">
+  <span>Total :</span>
+  <strong id="prix-total">0 €</strong>
+</div>
       <button type="submit" class="btn">Envoyer</button>
     </form>
     <div id="formMessage" style="margin-top:15px; color:#fff;"></div>
@@ -636,6 +663,55 @@ label span a {
     });
   });
 </script>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const prixBase = {
+      "Pack Éco – Citadine": 85,
+      "Pack Confort – Berline / SUV": 100,
+      "Pack Premium – Utilitaire / Luxe": 120,
+      "Supplément extérieur": 15
+    };
+
+    const checkboxSupplement = document.querySelector('input[type="checkbox"][data-nom="Supplément extérieur"]');
+    const categorieOptions = document.querySelectorAll('.categorie-option');
+    const inputCategorie = document.getElementById('categorie');
+    const prixTotalEl = document.getElementById('prix-total');
+
+    function calculerPrix() {
+      let categorie = inputCategorie.value;
+      if (!categorie) {
+        prixTotalEl.textContent = '0 €';
+        return;
+      }
+      let prix = prixBase[categorie] || 0;
+      if (checkboxSupplement.checked) {
+        prix += Number(checkboxSupplement.getAttribute('data-prix'));
+      }
+      prixTotalEl.textContent = prix + ' €';
+    }
+
+    // Met à jour la catégorie et calcule le prix quand on clique sur une catégorie
+    categorieOptions.forEach(option => {
+      option.addEventListener('click', () => {
+        categorieOptions.forEach(opt => opt.classList.remove('selected'));
+        option.classList.add('selected');
+        inputCategorie.value = option.getAttribute('data-value');
+        calculerPrix();
+      });
+    });
+
+    // Met à jour le prix si on coche/décoche le supplément
+    checkboxSupplement.addEventListener('change', () => {
+      calculerPrix();
+    });
+
+    // Initialisation prix
+    calculerPrix();
+  });
+</script>
+
+
 </body>
 </html>
 
