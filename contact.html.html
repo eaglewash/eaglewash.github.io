@@ -523,6 +523,7 @@ label span a {
 
   </div>
 </div>
+<h3> Double-cliquez sur la catégorie choisie pour actualiser le prix.</h3>
       <input type="hidden" name="categorie" id="categorie" required />
      <div id="choix-categorie" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px;">
   <div class="categorie-option" data-value="Pack Éco – Citadine">🚗 Citadine</div>
@@ -542,7 +543,7 @@ label span a {
 
 
     
-      <textarea name="message" placeholder="L'heure et la prestations souhaitées..." required></textarea>
+      <textarea name="message" placeholder="La prestations souhaitées, et details important pour le bon déroulé de notre intervention..." required></textarea>
       <label style="display: flex; align-items: center; gap: 10px;">
   <input type="checkbox" id="acceptCharte" required />
  <span>J'ai lu et j'accepte la <a href="charte.html" target="_blank" style="color: var(--secondary); text-decoration: underline;">charte de services</a></span>
@@ -625,13 +626,20 @@ label span a {
 
   window.addEventListener("load", () => {
     // Gestion du choix de catégorie
-    document.querySelectorAll('.categorie-option').forEach(option => {
-      option.addEventListener('click', () => {
-        document.querySelectorAll('.categorie-option').forEach(opt => opt.classList.remove('selected'));
-        option.classList.add('selected');
-        document.getElementById('categorie').value = option.getAttribute('data-value');
-        console.log('Catégorie choisie:', document.getElementById('categorie').value);
-      });
+document.querySelectorAll('.categorie-option').forEach(option => {
+  option.addEventListener('click', () => {
+    // Retirer la sélection précédente
+    document.querySelectorAll('.categorie-option').forEach(opt => opt.classList.remove('selected'));
+    
+    // Ajouter la sélection à l'option cliquée
+    option.classList.add('selected');
+    
+    // Mettre à jour la valeur cachée ou input
+    document.getElementById('categorie').value = option.getAttribute('data-value');
+    
+    // Appeler la fonction de calcul du prix
+    calculerPrix();
+  });
     });
 
     const form = document.getElementById("contactForm");
