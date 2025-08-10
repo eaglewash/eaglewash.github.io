@@ -551,6 +551,8 @@ label span a {
 <div id="luxury-price">
   <span>Total :</span>
   <strong id="prix-total">0 €</strong>
+  <input type="hidden" name="prix_total" id="prix_total_hidden" value="0">
+
 </div>
       <button type="submit" class="btn">Envoyer</button>
     </form>
@@ -700,31 +702,33 @@ label span a {
       let categorie = inputCategorie.value;
       if (!categorie) {
         prixTotalEl.textContent = '0 €';
+        document.getElementById('prix_total_hidden').value = 0;
         return;
       }
+
       let prix = prixBase[categorie] || 0;
+
       if (checkboxSupplement.checked) {
-        prix += Number(checkboxSupplement.getAttribute('data-prix'));
+        prix += prixBase["Supplément extérieur"];
       }
+
       prixTotalEl.textContent = prix + ' €';
+      document.getElementById('prix_total_hidden').value = prix;
     }
 
-    // Met à jour la catégorie et calcule le prix quand on clique sur une catégorie
+    // Mise à jour du prix quand on clique sur une catégorie
     categorieOptions.forEach(option => {
       option.addEventListener('click', () => {
-        categorieOptions.forEach(opt => opt.classList.remove('selected'));
-        option.classList.add('selected');
-        inputCategorie.value = option.getAttribute('data-value');
         calculerPrix();
       });
     });
 
-    // Met à jour le prix si on coche/décoche le supplément
+    // Mise à jour du prix quand on coche/décoche le supplément
     checkboxSupplement.addEventListener('change', () => {
       calculerPrix();
     });
 
-    // Initialisation prix
+    // Initialiser le prix au chargement (au cas où)
     calculerPrix();
   });
 </script>
