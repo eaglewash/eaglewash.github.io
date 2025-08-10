@@ -531,7 +531,11 @@ label span a {
  
 </div>
 <label>
-  <input type="checkbox" data-nom="Supplément extérieur" data-prix="15">
+  <input type="checkbox" 
+         name="supplement_exterieur" 
+         value="Oui" 
+         data-nom="Supplément extérieur" 
+         data-prix="15">
   ✨ Supplément extérieur
 </label><br>
 
@@ -649,6 +653,16 @@ label span a {
         confirmationMessage.style.display = "block";
         return;
       }
+
+  const suppCheck = form.querySelector('input[name="supplement_exterieur"]');
+  if (!suppCheck.checked) {
+    const hiddenField = document.createElement("input");
+    hiddenField.type = "hidden";
+    hiddenField.name = "supplement_exterieur";
+    hiddenField.value = "Non";
+    form.appendChild(hiddenField);
+  }
+
 
       // Envoi via EmailJS
       emailjs.sendForm('service_7forll2', 'template_gs83geb', this)
