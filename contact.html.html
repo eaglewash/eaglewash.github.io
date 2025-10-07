@@ -19,10 +19,10 @@
       font-family: 'Segoe UI', sans-serif;
     }
 
-    body {
-      background-color: var(--white);
-      color: var(--black);
-    }
+   body {
+  background-color: #e8e6e1; /* gris-beige doux, élégant */
+  color: var(--black);
+}
 
     header {
       background-color: var(--white);
@@ -445,6 +445,13 @@ label span a {
   color: #d4af37; /* doré */
   font-size: 1.8rem;
 }
+.packs-grid .pack-option:hover {
+  background-color: var(--gold);
+  color: var(--white);
+  transition: all 0.3s ease;
+}
+
+
 
   </style>
 </head>
@@ -525,11 +532,27 @@ label span a {
 </div>
 <h3> Double-cliquez sur la catégorie choisie pour actualiser le prix.</h3>
       <input type="hidden" name="categorie" id="categorie" required />
-     <div id="choix-categorie" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px;">
-  <div class="categorie-option" data-value="Pack Éco – Citadine">🚗 Citadine</div>
-  <div class="categorie-option" data-value="Pack Confort – Berline / SUV">🚙 Berline / SUV</div>
-  <div class="categorie-option" data-value="Pack Premium – Utilitaire / Luxe">🚐 Utilitaire / Luxe</div>
- 
+    <h3>Choisissez votre catégorie :</h3>
+<div id="choix-categorie" class="categorie-container" style="display: flex; flex-direction: column; gap: 20px;">
+  
+  <!-- Citadine -->
+  <div class="categorie-bloc">
+    <div class="categorie-option" data-categorie="citadine">🚗 Citadine</div>
+    <div class="packs-container" style="display:none; margin-top:10px;"></div>
+  </div>
+
+  <!-- Berline / SUV -->
+  <div class="categorie-bloc">
+    <div class="categorie-option" data-categorie="berline">🚙 Berline / SUV</div>
+    <div class="packs-container" style="display:none; margin-top:10px;"></div>
+  </div>
+
+  <!-- Utilitaire / Luxe -->
+  <div class="categorie-bloc">
+    <div class="categorie-option" data-categorie="utilitaire">🚐 Utilitaire / Luxe</div>
+    <div class="packs-container" style="display:none; margin-top:10px;"></div>
+  </div>
+
 </div>
 <label>
   <input type="checkbox" 
@@ -739,6 +762,184 @@ document.querySelectorAll('.categorie-option').forEach(option => {
     // Initialiser le prix au chargement (au cas où)
     calculerPrix();
   });
+</script>
+
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const packsData = {
+    citadine: [
+      { nom: "Pack Bronze", prix: 60, details: "Lavage extérieur + jantes" },
+      { nom: "Pack Gold", prix: 75, details: "Extérieur + intérieur complet + vitres" },
+      { nom: "Pack Concession", prix: 85, details: "Lustrage + soin complet + finitions pro" }
+    ],
+    berline: [
+      { nom: "Pack Bronze", prix: 75, details: "Lavage extérieur + jantes" },
+      { nom: "Pack Gold", prix: 90, details: "Extérieur + intérieur complet + vitres" },
+      { nom: "Pack Concession", prix: 105, details: "Lustrage + soin complet + finitions pro" }
+    ],
+    utilitaire: [
+      { nom: "Pack Bronze", prix: 95, details: "Lavage extérieur + jantes" },
+      { nom: "Pack Gold", prix: 115, details: "Extérieur + intérieur complet + vitres" },
+      { nom: "Pack Concession", prix: 135, details: "Lustrage + soin complet + finitions pro" }
+    ]
+  };
+
+  const categorieContainer = document.getElementById('choix-categorie');
+  const packsContainer = document.getElementById('packs-container');
+  const prixTotalEl = document.getElementById('prix-total');
+  const inputCategorie = document.getElementById('categorie');
+  const prixTotalHidden = document.getElementById('prix_total_hidden');
+
+  // Quand on clique sur une catégorie
+  document.querySelectorAll('.categorie-option').forEach(cat => {
+    cat.addEventListener('click', () => {
+      document.querySelectorAll('.categorie-option').forEach(c => c.classList.remove('selected'));
+      cat.classList.add('selected');
+      const categorie = cat.dataset.categorie;
+      afficherPacks(categorie);
+    });
+  });
+
+  // Affiche les packs pour une catégorie
+  function afficherPacks(categorie) {
+    packsContainer.innerHTML = `
+      <h3>Choisissez votre pack :</h3>
+      <div class="packs-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px;">
+        ${packsData[categorie].map(pack => `
+          <div class="pack-option" 
+               data-nom="${pack.nom}" 
+               data-prix="${pack.prix}" 
+               style="border:1px solid var(--gold); border-radius:10px; padding:15px; text-align:center; cursor:pointer;">
+            <h4 style="color:var(--gold); margin-bottom:8px;">${pack.nom}</h4>
+            <p style="font-size:0.95rem; color:#333;">${pack.details}</p>
+            <strong style="display:block; margin-top:10px; color:var(--black);">${pack.prix} €</strong>
+          </div>
+        `).join('')}
+      </div>
+    `;
+
+    document.querySelectorAll('.pack-option').forEach(pack => {
+      pack.addEventListener('click', () => {
+        document.querySelectorAll('.pack-option').forEach(p => p.style.background = '');
+        pack.style.background = 'var(--gold)';
+        pack.style.color = 'white';
+        const packNom = pack.dataset.nom;
+        const packPrix = parseFloat(pack.dataset.prix);
+
+        // Mise à jour des champs cachésc
+        inputCategorie.value = `${categorie} - ${packNom}`;
+        prixTotalEl.textContent = packPrix + " €";
+        prixTotalHidden.value = packPrix;
+      });
+    });
+  }
+});
+</script>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const packsData = {
+    citadine: [
+      { nom: "Pack Bronze", prix: 45, details: "Nettoyage des surfaces, des tapis, ainsi que le plancher" },
+      { nom: "Pack Gold", prix: 65, details: "Nettoyage des surfaces, des tapis, ainsi que le plancher + les sièges" },
+      { nom: "Pack Concession", prix: 85, details: "Nettoyage des surfaces, des tapis, ainsi que le plancher, les sièges + le coffre" }
+    ],
+    berline: [
+      { nom: "Pack Bronze", prix: 55, details: "Nettoyage des surfaces, des tapis, ainsi que le plancher" },
+      { nom: "Pack Gold", prix: 75, details: "Nettoyage des surfaces, des tapis, ainsi que le plancher + les sièges" },
+      { nom: "Pack Concession", prix: 95, details: "Nettoyage des surfaces, des tapis, ainsi que le plancher, les sièges + le coffre" }
+    ],
+    utilitaire: [
+      { nom: "Pack Bronze", prix: 70, details: "Nettoyage des surfaces, des tapis, ainsi que le plancher" },
+      { nom: "Pack Gold", prix: 95, details: "Nettoyage des surfaces, des tapis, ainsi que le plancher + les sièges" },
+      { nom: "Pack Concession", prix: 110, details: "Nettoyage des surfaces, des tapis, ainsi que le plancher, les sièges + le coffre" }
+    ]
+  };
+
+  const prixSupplement = 15; // supplément extérieur
+  const prixTotalEl = document.getElementById('prix-total');
+  const inputCategorie = document.getElementById('categorie');
+  const prixTotalHidden = document.getElementById('prix_total_hidden');
+  const checkboxSupplement = document.querySelector('input[name="supplement_exterieur"]');
+
+  let prixSelectionne = 0; // garde le prix du pack sélectionné
+
+  // Gestion des catégories
+  document.querySelectorAll('.categorie-option').forEach(cat => {
+    cat.addEventListener('click', () => {
+      const bloc = cat.parentElement;
+      const packsContainer = bloc.querySelector('.packs-container');
+      
+      // Fermer les autres sous-catégories
+      document.querySelectorAll('.packs-container').forEach(p => {
+        if (p !== packsContainer) p.style.display = 'none';
+      });
+
+      // Toggle d’affichage
+      packsContainer.style.display = (packsContainer.style.display === 'none' || packsContainer.style.display === '') 
+        ? 'block' : 'none';
+
+      // Générer les packs si vide
+      if (packsContainer.innerHTML.trim() === '') {
+        afficherPacks(cat.dataset.categorie, packsContainer);
+      }
+    });
+  });
+
+  // Génération dynamique des packs
+  function afficherPacks(categorie, container) {
+    container.innerHTML = `
+      <div class="packs-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px;">
+        ${packsData[categorie].map(pack => `
+          <div class="pack-option" 
+               data-nom="${pack.nom}" 
+               data-prix="${pack.prix}" 
+               style="border:1px solid var(--gold); border-radius:10px; padding:15px; text-align:center; cursor:pointer; background:white;">
+            <h4 style="color:var(--gold); margin-bottom:8px;">${pack.nom}</h4>
+            <p style="font-size:0.95rem; color:#333;">${pack.details}</p>
+            <strong style="display:block; margin-top:10px; color:var(--black);">${pack.prix} €</strong>
+          </div>
+        `).join('')}
+      </div>
+    `;
+
+    container.querySelectorAll('.pack-option').forEach(pack => {
+      pack.addEventListener('click', () => {
+        // désélectionner tous les packs
+        container.querySelectorAll('.pack-option').forEach(p => {
+          p.style.background = 'white';
+          p.style.color = 'black';
+        });
+        // sélectionner le pack cliqué
+        pack.style.background = 'var(--gold)';
+        pack.style.color = 'white';
+
+        const packNom = pack.dataset.nom;
+        const packPrix = parseFloat(pack.dataset.prix);
+        prixSelectionne = packPrix; // mémoriser le prix du pack
+
+        inputCategorie.value = categorie + ' - ' + packNom;
+
+        // Mettre à jour le prix total
+        majPrixTotal();
+      });
+    });
+  }
+
+  // Fonction pour recalculer le prix total
+  function majPrixTotal() {
+    let total = prixSelectionne;
+    if (checkboxSupplement.checked) {
+      total += prixSupplement;
+    }
+    prixTotalEl.textContent = total + " €";
+    prixTotalHidden.value = total;
+  }
+
+  // Quand on coche / décoche le supplément
+  checkboxSupplement.addEventListener('change', majPrixTotal);
+});
 </script>
 
 
