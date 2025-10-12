@@ -480,14 +480,30 @@ label span a {
     </p>
     <section class="section" id="reservation">
     <div style="margin: 40px 0;">
-  <h3>Choisissez une date :</h3>
   <div id="calendrier-dispos" style="display: grid; grid-template-columns: repeat(7, 1fr); gap: 10px; margin-top: 10px;"></div>
 </div>
 
 
 
 
-    <h2>Réserver un Lavage</h2>
+    <h2> Réserver un Lavage avec une des deux options </h2>
+
+</div>
+  <div style="background:linear-gradient(90deg,#fff,#fff8e8); border:2px solid var(--gold); padding:20px; border-radius:12px; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:12px; box-shadow:0 10px 30px rgba(212,175,55,0.12);">
+            <h3 style="color:var(--gold); margin:0; font-size:1.2rem;"> Réserver via Calendly</h3>
+            <p style="color:#333; text-align:center; max-width:720px;">Réservez en quelques clics et choisissez un créneau disponible sur notre calendrier en ligne pour convenir à la création d'un devis en notre.</p>
+            <a href="https://calendly.com/eaglewash68/reservations-eagle-wash" target="_blank" rel="noopener noreferrer" class="calendly-btn" style="display:inline-block; padding:14px 22px; border-radius:10px; font-weight:700; background:linear-gradient(90deg,var(--gold),#c89b2c); color:var(--white); text-decoration:none; box-shadow:0 8px 18px rgba(212,175,55,0.28);">➡️ Réserver via Calendly</a>
+            <small style="color:#666;">S'ouvre dans un nouvel onglet</small>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+<br>
+
+</br>
+<br>
+</br>
     <form id="contactForm">
           <h3> J'ai besoin d'en savoir un peu plus sur vous -> </h3>
       <input type="text" name="nom" placeholder="Votre Nom et Prénom" required />
@@ -530,7 +546,7 @@ label span a {
 
   </div>
 </div>
-<h3> Double-cliquez sur la catégorie choisie pour actualiser le prix.</h3>
+
       <input type="hidden" name="categorie" id="categorie" required />
     <h3>Choisissez votre catégorie :</h3>
 <div id="choix-categorie" class="categorie-container" style="display: flex; flex-direction: column; gap: 20px;">
@@ -593,7 +609,6 @@ label span a {
   text-align: center;
 ">
   ✅ Merci pour votre réservation ! Nous avons bien reçu votre demande et vous serez contacté dans les plus brefs délais.
-</div>
 
   </section>
 
@@ -940,6 +955,19 @@ document.addEventListener('DOMContentLoaded', () => {
   // Quand on coche / décoche le supplément
   checkboxSupplement.addEventListener('change', majPrixTotal);
 });
+</script>
+<script>
+  // Récupère les paramètres de l'URL
+  const params = new URLSearchParams(window.location.search);
+  const pack = params.get('pack');
+  const categorie = params.get('categorie');
+
+  if(pack) {
+    document.getElementById('pack-input').value = pack;
+  }
+  if(categorie) {
+    document.getElementById('categorie-input').value = categorie;
+  }
 </script>
 
 
