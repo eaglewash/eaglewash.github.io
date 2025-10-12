@@ -1,6 +1,15 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
+  <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-QV8FN8938V"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-QV8FN8938V');
+</script>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Eagle Wash - Accueil</title>
@@ -955,19 +964,6 @@ document.addEventListener('DOMContentLoaded', () => {
   // Quand on coche / décoche le supplément
   checkboxSupplement.addEventListener('change', majPrixTotal);
 });
-</script>
-<script>
-  // Récupère les paramètres de l'URL
-  const params = new URLSearchParams(window.location.search);
-  const pack = params.get('pack');
-  const categorie = params.get('categorie');
-
-  if(pack) {
-    document.getElementById('pack-input').value = pack;
-  }
-  if(categorie) {
-    document.getElementById('categorie-input').value = categorie;
-  }
 </script>
 
 
