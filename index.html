@@ -17,7 +17,6 @@
   <meta name="keywords" content="lavage auto, nettoyage voiture, detailing, domicile, écologique">
   <meta name="google-site-verification" content="Tb2h4gzzvAORSCI5vD2gMbnH6v7Q-emwyhCcQmXA74c" />
 
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-..." crossorigin="anonymous" referrerpolicy="no-referrer" />
 
   <style>
@@ -456,6 +455,125 @@ nav.topbar-nav a:hover::after {
   }
 }
 
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px; /* pour que le menu ne cache pas le haut d’une section */
+}
+
+section {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.7s ease;
+}
+
+section.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+button, .btn {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+button:hover, .btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+/* ===== MENU BURGER ===== */
+.burger {
+  display: none;
+  background: none;
+  border: none;
+  color: var(--gold);
+  font-size: 1.8rem;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.burger:hover {
+  transform: rotate(10deg);
+}
+
+/* Cacher le menu sur mobile */
+@media (max-width: 768px) {
+  .topbar-nav {
+    display: none;
+    flex-direction: column;
+    background-color: var(--black);
+    position: absolute;
+    top: 70px;
+    right: 20px;
+    width: 200px;
+    border: 2px solid var(--gold);
+    border-radius: 10px;
+    padding: 15px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.4);
+  }
+
+  .topbar-nav a {
+    color: var(--white);
+    padding: 10px 0;
+    text-align: center;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+  }
+
+  .topbar-nav a:last-child {
+    border-bottom: none;
+  }
+
+  .topbar-nav.active {
+    display: flex;
+  }
+
+  .burger {
+    display: block;
+    position: absolute;
+    right: 20px;
+    top: 20px;
+  }
+}
+/* Animation d'apparition fluide du site */
+body {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+/* Quand la page est chargée */
+body.loaded {
+  opacity: 1;
+  transform: translateY(0);
+}
+.card {
+  border: 1px solid #D4AF37;
+  border-radius: 12px;
+  padding: 20px;
+  text-align: center;
+  max-width: 250px;
+  box-shadow: 0 0 10px rgba(212, 175, 55, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, opacity 0.7s ease;
+  opacity: 0; /* Initialement invisible pour l'animation */
+  transform: translateY(30px);
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(212, 175, 55, 0.3);
+}
+
+.card h4 {
+  color: #D4AF37;
+  margin-bottom: 10px;
+}
+
+.card p {
+  color: #333;
+  font-size: 0.95rem;
+}
+
+
+
+
+
 
   </style>
 
@@ -464,19 +582,28 @@ nav.topbar-nav a:hover::after {
 </head>
 <body>
 
-<div class="topbar">
-  <div class="brand-header">
-  <img src="image/logo_EAGL_WASH_DETOURER.png" alt="lavage-auto" class="logo-header" />
-  <h1 class="brand-title">Eagle Wash</h1>
-</div>
+<header role="banner">
+  <!-- Tout ton bloc .topbar va ici -->
+  <div class="topbar">
+    <div class="brand-header">
+      <img src="image/logo_EAGL_WASH_DETOURER.png" alt="lavage-auto" class="logo-header" />
+      <h1 class="brand-title">Eagle Wash</h1>
+    </div>
 
-  <nav class="topbar-nav">
-    <a href="index.html">Accueil</a>
-    <a href="services.html.html">Services</a>
-   <a href="about.html.html">À propos</a>
-    <a href="contact.html.html">Contact</a>
-  </nav>
-</div>
+ <button class="burger" aria-label="Menu principal">
+  <i class="fas fa-bars"></i>
+</button>
+
+<nav class="topbar-nav">
+  <a href="index.html">Accueil</a>
+  <a href="services.html.html">Services</a>
+  <a href="about.html.html">À propos</a>
+  <a href="contact.html.html">Contact</a>
+</nav>
+
+  </div>
+</header>
+<main id="content" role="main">
 
 <br>
 
@@ -566,14 +693,7 @@ nav.topbar-nav a:hover::after {
     </div>
   </div>
 </section>
-<div class="bottombar">
-  <p>
-    &copy; 2025 Eagle Wash — Tous droits réservés |
-    <a href="mentions-legales.html">Mentions légales</a> |
-    <a href="politique-confidentialite.html">Politique de confidentialité</a> |
-    <a href="cgu.html">CGU</a>
-  </p>
-</div>
+
 
 <!-- À placer juste avant </body> -->
 <div class="social-overlay">
@@ -583,10 +703,50 @@ nav.topbar-nav a:hover::after {
 </div>
 
 <!-- N'oublie pas Font Awesome dans le <head> si pas déjà présent -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-..." crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+<footer role="contentinfo">
+  <div class="bottombar">
+    <!-- liens légaux -->
+    <p>
+    &copy; 2025 Eagle Wash — Tous droits réservés |
+    <a href="mentions-legales.html">Mentions légales</a> |
+    <a href="politique-confidentialite.html">Politique de confidentialité</a> |
+    <a href="cgu.html">CGU</a>
+  </p>
+  </div>
+</footer>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const sections = document.querySelectorAll("section");
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) entry.target.classList.add("visible");
+    });
+  }, { threshold: 0.2 });
+
+  sections.forEach(section => observer.observe(section));
+});
+</script>
+<script>
+const burger = document.querySelector('.burger');
+const nav = document.querySelector('.topbar-nav');
+
+burger.addEventListener('click', () => {
+  nav.classList.toggle('active');
+});
+</script>
+<script>
+window.addEventListener('load', () => {
+  document.body.classList.add('loaded');
+});
+</script>
+
+
+
 
 
 </body>
