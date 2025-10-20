@@ -478,7 +478,7 @@ button:hover, .btn:hover {
   transform: translateY(-3px);
   box-shadow: 0 4px 10px rgba(0,0,0,0.2);
 }
-/* ===== MENU BURGER (amélioré pour mobile) ===== */
+/* === MENU BURGER (VERSION FONCTIONNELLE) === */
 .burger {
   display: none;
   background: none;
@@ -497,13 +497,17 @@ button:hover, .btn:hover {
   transform: scale(1.1);
 }
 
-/* Menu mobile caché par défaut */
+/* Version mobile */
 @media (max-width: 768px) {
+  .burger {
+    display: block;
+  }
+
   .topbar-nav {
     display: none;
     flex-direction: column;
     position: absolute;
-    top: 75px;
+    top: 85px;
     right: 15px;
     width: 85%;
     max-width: 280px;
@@ -513,19 +517,16 @@ button:hover, .btn:hover {
     padding: 20px 0;
     text-align: center;
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5);
-    animation: fadeIn 0.3s ease forwards;
-    z-index: 1000;
+    z-index: 999;
   }
 
   .topbar-nav a {
     color: var(--white);
     padding: 14px 0;
     display: block;
-    text-decoration: none;
     font-weight: 600;
     font-size: 1.05rem;
-    letter-spacing: 0.5px;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     transition: background 0.3s ease, color 0.3s ease;
   }
 
@@ -538,20 +539,18 @@ button:hover, .btn:hover {
     color: var(--gold);
   }
 
+  /* Quand le menu est actif */
   .topbar-nav.active {
     display: flex;
+    animation: slideDown 0.3s ease;
   }
 
-  @keyframes fadeIn {
-    from {
-      opacity: 0;
-      transform: translateY(-10px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
+  @keyframes slideDown {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
   }
+}
+
 
   /* Ajustement du header pour mobile */
   .brand-header {
@@ -567,7 +566,6 @@ button:hover, .btn:hover {
   .logo-header {
     width: 90px;
   }
-}
 
 
 /* Animation d'apparition fluide du site */
@@ -622,23 +620,25 @@ body.loaded {
 <body>
 
 <header role="banner">
-  <!-- Tout ton bloc .topbar va ici -->
   <div class="topbar">
     <div class="brand-header">
-      <img src="image/logo_EAGL_WASH_DETOURER.png" alt="lavage-auto" class="logo-header" />
+      <img src="image/logo_EAGL_WASH_DETOURER.png" alt="logo Eagle Wash lavage auto à domicile" class="logo-header" />
       <h1 class="brand-title">Eagle Wash</h1>
+      <!-- BOUTON BURGER -->
+      <button class="burger" aria-label="Ouvrir le menu">
+        <i class="fas fa-bars"></i>
+      </button>
     </div>
 
- <button class="burger" aria-label="Menu principal">
-  <i class="fas fa-bars"></i>
-</button>
-
-<nav class="topbar-nav">
-  <a href="index.html">Accueil</a>
-  <a href="services.html.html">Services</a>
-  <a href="about.html.html">À propos</a>
-  <a href="contact.html.html">Contact</a>
-</nav>
+    <!-- NAVIGATION PRINCIPALE -->
+    <nav class="topbar-nav" id="nav-menu">
+      <a href="index.html">Accueil</a>
+      <a href="services.html.html">Services</a>
+      <a href="about.html.html">À propos</a>
+      <a href="contact.html.html">Contact</a>
+    </nav>
+  </div>
+</header>
 
   </div>
 </header>
@@ -650,14 +650,20 @@ body.loaded {
 <br>
 </br>
 <div class="intro-message">
-  <p>Chez Eagle Wash, nous allions passion automobile et expertise technique pour vous proposer un éventail de prestations haut de gamme.</p>
-  <p>Nous sommes à votre disposition pour des services de nettoyage professionnel, réalisé avec soin et précision.</p>
-  <p>Avec un sens aigü du détail et un engagement envers l’excellence, nous veillons à ce que votre voiture brille à l’intérieur comme à l’extérieur.</p>
-  <p>
-    <a href="contact.html.html" style="color: var(--gold); text-decoration: underline; font-weight: bold;">
-      Contactez-moi
-    </a> pour une voiture d’une propreté éclatante.
-  </p>
+<p>
+Chez <strong>Eagle Wash</strong>, spécialiste du <strong>lavage auto à domicile</strong> dans le <strong>Haut-Rhin</strong> (Mulhouse, Colmar, Belfort et environs), nous sommes <strong>passionnés d'automobile</strong> et <strong>expertise technique</strong> pour offrir un service de <strong>nettoyage de voiture</strong> haut de gamme, rapide et écologique.
+</p>
+<p>
+Nous proposons un large éventail de prestations : <strong>lavage intérieur</strong>, <strong>nettoyage extérieur</strong>, <strong>detailing professionnel</strong>, <strong>rénovation des cuirs</strong>, <strong>shampoing tissus</strong>, réalisés avec soin et précision directement chez vous, sans déplacement en station.
+</p>
+<p>
+Avec un sens aigu du détail, des produits <strong>écologiques</strong> et un engagement total envers l’<strong>excellence du résultat</strong>, nous veillons à ce que votre véhicule retrouve une <strong>propreté éclatante</strong> et une <strong>brillance durable</strong>, à l’intérieur comme à l’extérieur.
+</p>
+<p>
+<a href="contact.html.html" style="color: var(--gold); text-decoration: underline; font-weight: bold;">
+Contactez Eagle Wash</a> pour un <strong>lavage auto à domicile professionnel</strong> et sur mesure, partout dans le <strong>68</strong>.
+</p>
+
 </div>
 
 <br>
