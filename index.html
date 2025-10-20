@@ -632,27 +632,20 @@ body.loaded {
 </head>
 <body>
 
-<header role="banner">
-  <div class="topbar">
-    <div class="brand-header">
-      <img src="image/logo_EAGL_WASH_DETOURER.png" alt="logo Eagle Wash lavage auto à domicile" class="logo-header" />
-      <h1 class="brand-title">Eagle Wash</h1>
-      <button class="burger" aria-label="Ouvrir le menu">
-        <i class="fas fa-bars"></i>
-      </button>
-    </div>
+<div class="topbar">
+  <div class="brand-header">
+  <img src="image/logo_EAGL_WASH_DETOURER.png" alt="Logo Eagle Wash" class="logo-header" />
+  <h1 class="brand-title">Eagle Wash</h1>
+</div>
 
-    <nav class="topbar-nav" id="nav-menu">
-      <a href="index.html">Accueil</a>
-      <a href="services.html">Services</a>
-      <a href="about.html.html">À propos</a>
-      <a href="contact.html.html">Contact</a>
-    </nav>
-  </div>
-</header>
+  <nav class="topbar-nav">
+    <a href="index.html">Accueil</a>
+    <a href="services.html.html">Services</a>
+    <a href="about.html.html">À propos</a>
+    <a href="contact.html.html">Contact</a>
+  </nav>
+</div>
 
-  </div>
-</header>
 <main id="content" role="main">
 
 <br>
@@ -800,31 +793,7 @@ window.addEventListener('load', () => {
   document.body.classList.add('loaded');
 });
 </script>
-<script>
-document.addEventListener("DOMContentLoaded", () => {
-  const burger = document.querySelector(".burger");
-  const nav = document.querySelector(".topbar-nav");
 
-  burger.addEventListener("click", () => {
-    const isActive = nav.classList.toggle("active");
-    burger.innerHTML = isActive
-      ? '<i class="fas fa-times"></i>'   // Croix
-      : '<i class="fas fa-bars"></i>';   // Burger
-  });
-
-  // Ferme le menu si on clique sur un lien
-  document.querySelectorAll(".topbar-nav a").forEach(link => {
-    link.addEventListener("click", () => {
-      nav.classList.remove("active");
-      burger.innerHTML = '<i class="fas fa-bars"></i>';
-    });
-  });
-
-  // S'assure que le menu est fermé au chargement
-  nav.classList.remove("active");
-  burger.innerHTML = '<i class="fas fa-bars"></i>';
-});
-</script>
 
 
 
