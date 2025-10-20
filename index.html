@@ -478,7 +478,7 @@ button:hover, .btn:hover {
   transform: translateY(-3px);
   box-shadow: 0 4px 10px rgba(0,0,0,0.2);
 }
-/* === MENU BURGER (VERSION FONCTIONNELLE) === */
+/* === MENU BURGER === */
 .burger {
   display: none;
   background: none;
@@ -486,15 +486,21 @@ button:hover, .btn:hover {
   color: var(--gold);
   font-size: 1.9rem;
   cursor: pointer;
-  transition: transform 0.3s ease;
   position: absolute;
   right: 20px;
   top: 25px;
   z-index: 1001;
+  transition: transform 0.3s ease;
 }
 
 .burger:hover {
   transform: scale(1.1);
+}
+
+/* Menu mobile fermé de base */
+.topbar-nav {
+  display: flex;
+  gap: 2rem;
 }
 
 /* Version mobile */
@@ -504,7 +510,7 @@ button:hover, .btn:hover {
   }
 
   .topbar-nav {
-    display: none;
+    display: none; /* <-- Fermé de base */
     flex-direction: column;
     position: absolute;
     top: 85px;
@@ -539,17 +545,24 @@ button:hover, .btn:hover {
     color: var(--gold);
   }
 
-  /* Quand le menu est actif */
+  /* Menu ouvert */
   .topbar-nav.active {
     display: flex;
     animation: slideDown 0.3s ease;
   }
 
   @keyframes slideDown {
-    from { opacity: 0; transform: translateY(-10px); }
-    to { opacity: 1; transform: translateY(0); }
+    from {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
   }
 }
+
 
 
   /* Ajustement du header pour mobile */
@@ -624,16 +637,14 @@ body.loaded {
     <div class="brand-header">
       <img src="image/logo_EAGL_WASH_DETOURER.png" alt="logo Eagle Wash lavage auto à domicile" class="logo-header" />
       <h1 class="brand-title">Eagle Wash</h1>
-      <!-- BOUTON BURGER -->
       <button class="burger" aria-label="Ouvrir le menu">
         <i class="fas fa-bars"></i>
       </button>
     </div>
 
-    <!-- NAVIGATION PRINCIPALE -->
     <nav class="topbar-nav" id="nav-menu">
       <a href="index.html">Accueil</a>
-      <a href="services.html.html">Services</a>
+      <a href="services.html">Services</a>
       <a href="about.html.html">À propos</a>
       <a href="contact.html.html">Contact</a>
     </nav>
@@ -787,6 +798,31 @@ burger.addEventListener('click', () => {
 <script>
 window.addEventListener('load', () => {
   document.body.classList.add('loaded');
+});
+</script>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const burger = document.querySelector(".burger");
+  const nav = document.querySelector(".topbar-nav");
+
+  burger.addEventListener("click", () => {
+    const isActive = nav.classList.toggle("active");
+    burger.innerHTML = isActive
+      ? '<i class="fas fa-times"></i>'   // Croix
+      : '<i class="fas fa-bars"></i>';   // Burger
+  });
+
+  // Ferme le menu si on clique sur un lien
+  document.querySelectorAll(".topbar-nav a").forEach(link => {
+    link.addEventListener("click", () => {
+      nav.classList.remove("active");
+      burger.innerHTML = '<i class="fas fa-bars"></i>';
+    });
+  });
+
+  // S'assure que le menu est fermé au chargement
+  nav.classList.remove("active");
+  burger.innerHTML = '<i class="fas fa-bars"></i>';
 });
 </script>
 
