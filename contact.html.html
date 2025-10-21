@@ -549,17 +549,18 @@ Nous vous répondrons rapidement afin de planifier votre <strong>intervention à
       style="padding: 12px; border: 1px solid var(--gold); border-radius: 6px; width: 100%; font-size: 1rem; background-color: #fdfdfd; color: #333; margin-bottom:15px;"
     >
 
-    <!-- Sélection de l'heure -->
-    <label for="heure-lavage" style="display:block; font-weight:bold; color:var(--gold); margin-bottom:8px; font-size:1.1rem; text-align:center;">
-      ⏰ Heure souhaitée
-    </label>
-    <input 
-      type="time" 
-      id="heure-lavage" 
-      name="heure" 
-      required 
-      style="padding: 12px; border: 1px solid var(--gold); border-radius: 6px; width: 100%; font-size: 1rem; background-color: #fdfdfd; color: #333;"
-    >
+   <!-- Sélection de l'heure -->
+<label for="heure-lavage" style="display:block; font-weight:bold; color:var(--gold); margin-bottom:8px; font-size:1.1rem; text-align:center;">
+  ⏰ Heure souhaitée
+</label>
+<select 
+  id="heure-lavage" 
+  name="heure" 
+  required 
+  style="padding: 12px; border: 1px solid var(--gold); border-radius: 6px; width: 100%; font-size: 1rem; background-color: #fdfdfd; color: #333;">
+  <option value="">Sélectionnez d’abord une date</option>
+</select>
+
 
     <!-- Texte explicatif -->
     <p style="color:#777; font-size:0.9rem; margin-top:8px; text-align:center;">
@@ -978,6 +979,113 @@ document.addEventListener('DOMContentLoaded', () => {
   checkboxSupplement.addEventListener('change', majPrixTotal);
 });
 </script>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const inputDate = document.getElementById('date-lavage');
+  const heureSelect = document.getElementById('heure-lavage');
+  if (!inputDate || !heureSelect) return;
+
+  // 🔸 DATES + HEURES disponibles
+const disponibilites = {
+  "2025-10-27": ["8:30", "11:30", "14:30", "17:30", "20:30"],
+  "2025-10-28": ["8:30", "11:30", "14:30", "17:30", "20:30"],
+  "2025-10-29": ["8:30", "11:30", "14:30"],
+  "2025-10-30": ["8:30", "20:30"],
+  "2025-10-31": ["8:30", "11:30", "14:30"],
+  "2025-11-01": ["8:30", "20:30"],
+  "2025-11-02": ["8:30", "17:30", "20:30"],
+  "2025-11-03": ["17:30", "20:30"],
+  "2025-11-04": ["17:30", "20:30"],
+  "2025-11-08": ["8:30", "14:30"]
+};
+
+  // --- Crée la popup pour afficher les dates
+  let popup = document.createElement('div');
+  popup.id = 'popup-dispos';
+  popup.style.position = 'absolute';
+  popup.style.background = 'white';
+  popup.style.border = '1px solid var(--gold)';
+  popup.style.borderRadius = '8px';
+  popup.style.boxShadow = '0 4px 10px rgba(0,0,0,0.15)';
+  popup.style.padding = '10px';
+  popup.style.display = 'none';
+  popup.style.zIndex = '9999';
+  document.body.appendChild(popup);
+
+  // 🔹 Remplir la popup avec les dates disponibles
+  for (const [date, heures] of Object.entries(disponibilites)) {
+    const d = new Date(date + 'T00:00:00');
+    const label = d.toLocaleDateString('fr-FR', { weekday: 'short', month: 'short', day: 'numeric' });
+    const btn = document.createElement('button');
+    btn.textContent = label;
+    btn.dataset.date = date;
+    btn.style.display = 'block';
+    btn.style.width = '100%';
+    btn.style.background = 'white';
+    btn.style.border = '1px solid var(--gold)';
+    btn.style.borderRadius = '6px';
+    btn.style.padding = '8px';
+    btn.style.margin = '4px 0';
+    btn.style.cursor = 'pointer';
+    btn.style.fontWeight = '500';
+    btn.addEventListener('mouseenter', () => btn.style.background = '#fff5d7');
+    btn.addEventListener('mouseleave', () => btn.style.background = 'white');
+
+    btn.addEventListener('click', () => {
+      // 🟡 Met la date dans le champ
+      inputDate.value = date;
+
+      // 🟡 Remplit le menu d'heures pour cette date
+      remplirHeures(heures);
+
+      // Ferme la popup
+      popup.style.display = 'none';
+
+      // Émet un event "change" si besoin
+      inputDate.dispatchEvent(new Event('change', { bubbles: true }));
+    });
+
+    popup.appendChild(btn);
+  }
+
+  // 🔹 Ouvre la popup à la position du champ
+  inputDate.addEventListener('click', (e) => {
+    const rect = inputDate.getBoundingClientRect();
+    popup.style.top = `${rect.bottom + window.scrollY + 5}px`;
+    popup.style.left = `${rect.left + window.scrollX}px`;
+    popup.style.minWidth = `${rect.width}px`;
+    popup.style.display = 'block';
+  });
+
+  // 🔹 Ferme la popup si on clique ailleurs
+  document.addEventListener('click', (e) => {
+    if (!popup.contains(e.target) && e.target !== inputDate) {
+      popup.style.display = 'none';
+    }
+  });
+
+  // 🕒 Fonction pour remplir le menu d’heures selon la date choisie
+ function remplirHeures(heures) {
+  heureSelect.innerHTML = '';
+  if (!heures || heures.length === 0) {
+    heureSelect.innerHTML = '<option value="">Aucune heure dispo ce jour</option>';
+    return;
+  }
+  heureSelect.innerHTML = '<option value="">Choisissez une heure</option>';
+  heures.forEach(h => {
+    const option = document.createElement('option');
+    option.value = h;
+    option.textContent = h;
+    heureSelect.appendChild(option);
+  });
+}
+
+});
+</script>
+
+
+
+
 
 
 </body>
