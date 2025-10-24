@@ -237,28 +237,7 @@
       transform: translateY(0);
     }
 
-    /* === Bouton overlay "Créer mon devis" === */
-    .cta-devis-overlay {
-      position: fixed;
-      bottom: 20px;
-      left: 50%;
-      transform: translateX(-50%);
-      background-color: var(--gold);
-      color: var(--white);
-      padding: 14px 32px;
-      font-size: 1.1rem;
-      font-weight: bold;
-      border-radius: 50px;
-      box-shadow: 0 6px 18px rgba(212, 175, 55, 0.4);
-      text-decoration: none;
-      transition: all 0.3s ease;
-      z-index: 2000;
-    }
-    .cta-devis-overlay:hover {
-      background-color: #caa52f;
-      transform: translateX(-50%) translateY(-3px);
-      box-shadow: 0 8px 20px rgba(212, 175, 55, 0.6);
-    }
+    
     .contact-info {
   background-color: var(--gold);
   color: var(--white);
@@ -419,6 +398,60 @@
 .rules-actions a:hover {
   background-color: #caa52f;
 }
+.google-reviews-box {
+  position: fixed;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  background-color: rgba(255, 255, 255, 0.95);
+  border-right: 2px solid var(--gold);
+  box-shadow: 4px 0 10px rgba(0, 0, 0, 0.2);
+  border-top-right-radius: 12px;
+  border-bottom-right-radius: 12px;
+  padding: 16px 12px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  z-index: 1000;
+  transition: transform 0.3s ease;
+}
+
+.google-reviews-box:hover {
+  transform: translateY(-50%) scale(1.05);
+}
+
+.google-reviews-box img {
+  width: 30px;
+  height: 30px;
+}
+
+.google-reviews-box .google-text {
+  display: flex;
+  flex-direction: column;
+  font-size: 0.9rem;
+  color: var(--black);
+  line-height: 1.2;
+}
+
+.google-reviews-box .stars {
+  color: #f4b400;
+  font-size: 1rem;
+  letter-spacing: 2px;
+}
+
+.google-reviews-box a {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: inherit;
+}
+.google-widget-left {
+  position: fixed;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  z-index: 1000;
+}
 
 
     
@@ -493,14 +526,28 @@
     </section>
   </main>
 
-  <!-- Bouton "Créer mon devis" en overlay -->
-  <a href="contact.html.html" class="cta-devis-overlay">Créer mon devis</a>
+
 
   <div class="social-overlay">
     <a href="https://www.facebook.com/profile.php?id=61578955477444" target="_blank"><i class="fab fa-facebook-f"></i></a>
     <a href="https://www.instagram.com/eaglewash688/" target="_blank"><i class="fab fa-instagram"></i></a>
     <a href="https://www.tiktok.com/@eaglewash68" target="_blank"><i class="fab fa-tiktok"></i></a>
   </div>
+  <!-- Avis Google à gauche -->
+<div class="google-reviews-box">
+  <a href="https://www.google.com/search?sa=X&sca_esv=9da7a081ced3aa3b&rlz=1C1CHBF_enFR1125FR1125&hl=fr-FR&biw=3413&bih=1740&sxsrf=AE3TifND1tz6fCVCbqXWl_I1uBoyNeaXHQ:1761309492369&q=Eagle+Wash&si=AMgyJEs9DArPE9xmb5yVYVjpG4jqWDEKSIpCRSjmm88XZWnGNeCPYPiFRuswww-3hyRUzgCreoNIfGkoUsNkjkffvV5GGHOuCjx8Euc2lve55nb68qe-IB8%3D&ved=2ahUKEwiKjIeV7byQAxWJUaQEHc7PBfQQ_coHegQISxAB" target="_blank">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg" alt="Google logo">
+    <div class="google-text">
+      <span class="stars">⭐⭐⭐⭐⭐</span>
+      <p>5 / 5 sur Google</p>
+      <small>Voir les avis →</small>
+    </div>
+  </a>
+</div>
+
+
+
+
 
   <footer role="contentinfo">
     <div class="bottombar">
@@ -564,6 +611,7 @@
     <ul class="rules-list">
       <li>Respecter les informations et services présentés sur le site.</li>
       <li>Ne pas reproduire le contenu sans autorisation.</li>
+      <li>Respecter le fait que nous sommes des personnes comme vous et que l'on procède à un échange de service donc merci de bien respecter les horraires choisi par vous même </li>
       <li>Accepter nos <a href="cgu.html" target="_blank">conditions générales d’utilisation</a>.</li>
       <li>Lire notre <a href="politique-confidentialite.html" target="_blank">politique de confidentialité</a>.</li>
     </ul>
@@ -574,6 +622,17 @@
     </div>
   </div>
 </div>
+
+<!-- Start of OpenWidget (www.openwidget.com) code -->
+<script>
+  window.__ow = window.__ow || {};
+  window.__ow.organizationId = "2a6e4101-78f3-43f8-bb1e-6dccc29a7a23";
+  window.__ow.integration_name = "manual_settings";
+  window.__ow.product_name = "openwidget";   
+  ;(function(n,t,c){function i(n){return e._h?e._h.apply(null,n):e._q.push(n)}var e={_q:[],_h:null,_v:"2.0",on:function(){i(["on",c.call(arguments)])},once:function(){i(["once",c.call(arguments)])},off:function(){i(["off",c.call(arguments)])},get:function(){if(!e._h)throw new Error("[OpenWidget] You can't use getters before load.");return i(["get",c.call(arguments)])},call:function(){i(["call",c.call(arguments)])},init:function(){var n=t.createElement("script");n.async=!0,n.type="text/javascript",n.src="https://cdn.openwidget.com/openwidget.js",t.head.appendChild(n)}};!n.__ow.asyncInit&&e.init(),n.OpenWidget=n.OpenWidget||e}(window,document,[].slice))
+</script>
+<noscript>You need to <a href="https://www.openwidget.com/enable-javascript" rel="noopener nofollow">enable JavaScript</a> to use the communication tool powered by <a href="https://www.openwidget.com/" rel="noopener nofollow" target="_blank">OpenWidget</a></noscript>
+<!-- End of OpenWidget code -->
 
 
 
