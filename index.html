@@ -342,6 +342,12 @@
   padding: 20px;
   transition: opacity 0.4s ease;
 }
+/* Si l’overlay est caché par le JS, il ne bloque plus rien */
+#rules-overlay.hidden {
+  opacity: 0;
+  pointer-events: none;
+  visibility: hidden;
+}
 
 #rules-overlay.fade-out {
   opacity: 0;
@@ -434,6 +440,12 @@
     padding: 8px 18px;
     font-size: 0.9rem;
   }
+  #rules-overlay[style*="display: none"] {
+  display: none !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
+
 }
 
 /* === Nouveau style premium pour l'overlay Google Reviews === */
@@ -513,7 +525,7 @@
 .hero-header {
   position: relative;
   width: 100%;
-  height: 45vh;
+  height: 25vh;
   background: url("Voiture de Luxe Sous l'Eau.jpg") center/cover no-repeat;
   overflow: hidden;
 }
@@ -926,8 +938,8 @@
     const acceptBtn = document.getElementById("accept-rules");
 
     // Si déjà accepté → on ne réaffiche pas
-  if (localStorage.getItem("rulesAccepted") === "true") {
-  overlay.style.display = "none";
+ if (localStorage.getItem("rulesAccepted") === "true") {
+  overlay.remove(); // retire complètement l’overlay
 } else {
   document.body.style.overflow = "hidden";
 }
