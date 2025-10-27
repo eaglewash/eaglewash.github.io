@@ -1,0 +1,1036 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+
+ 
+
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-QV8FN8938V"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-QV8FN8938V');
+  </script>
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>EagleWash – Service de lavage auto à domicile</title>
+  <meta name="description" content="EagleWash propose le lavage de voiture à domicile, rapide et écologique. Réservez en ligne facilement !">
+  <meta name="keywords" content="lavage auto, nettoyage voiture, detailing, domicile, écologique">
+  <meta name="google-site-verification" content="Tb2h4gzzvAORSCI5vD2gMbnH6v7Q-emwyhCcQmXA74c" />
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <style>
+    :root {
+      --gold: #D4AF37;
+      --white: #ffffff;
+      --black: #111111;
+      --gray: #f5f5f5;
+    }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', sans-serif;
+    }
+    body {
+      background-color: var(--white);
+      color: var(--black);
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+    body.loaded {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    header {
+      background-color: var(--white);
+      padding: 20px;
+      text-align: center;
+      border-bottom: 2px solid var(--gold);
+    }
+    header h1 {
+      color: var(--gold);
+      font-size: 2.5rem;
+      letter-spacing: 2px;
+    }
+
+    nav.topbar-nav {
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      margin-top: 15px;
+    }
+    nav.topbar-nav a {
+      position: relative;
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--gold);
+      text-decoration: none;
+      letter-spacing: 1px;
+      padding: 6px 0;
+      transition: color 0.3s ease;
+    }
+    nav.topbar-nav a:hover {
+      color: var(--gold);
+    }
+
+    .hero {
+      background: linear-gradient(to bottom right, #fff, #f8f4eb);
+      padding: 60px 20px;
+      text-align: center;
+    }
+
+    .section {
+      padding: 60px 20px;
+      max-width: 1000px;
+      margin: auto;
+    }
+    .section h3 {
+      color: var(--gold);
+      font-size: 1.8rem;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    footer {
+      background-color: var(--white);
+      color: var(--black);
+      text-align: center;
+      padding: 20px;
+      border-top: 2px solid var(--gold);
+      margin-top: 40px;
+    }
+
+    .topbar, .bottombar {
+      background-color: var(--black);
+      color: var(--white);
+      padding: 10px 20px;
+      font-size: 0.9rem;
+    }
+    .topbar-nav a {
+      color: var(--white);
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+    .topbar-nav a:hover {
+      color: var(--gold);
+    }
+
+    .bottombar {
+      text-align: center;
+      font-size: 0.85rem;
+      border-top: 2px solid var(--gold);
+      margin-top: 40px;
+    }
+
+    .presentation {
+      max-width: 1000px;
+      margin: 60px auto;
+      display: flex;
+      flex-direction: column;
+      gap: 60px;
+    }
+    .bloc {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 30px;
+    }
+    .bloc:nth-child(even) {
+      flex-direction: row-reverse;
+    }
+    .bloc-img img {
+      width: 320px;
+      border-radius: 12px;
+    }
+    .bloc-texte {
+      flex: 1;
+      min-width: 250px;
+    }
+    .bloc-texte .numero {
+      font-size: 1.8rem;
+      font-weight: bold;
+      color: var(--gold);
+      display: block;
+      margin-bottom: 10px;
+    }
+    .bloc-texte h3 {
+      font-size: 1.6rem;
+      margin-bottom: 10px;
+      color: var(--black);
+    }
+
+    .intro-message {
+      max-width: 500px;
+      margin: 30px auto;
+      text-align: center;
+      font-size: 0.8rem;
+      color: #777;
+      line-height: 1.5;
+    }
+
+    .brand-title {
+      font-size: 3rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      color: var(--gold);
+      text-align: center;
+      margin: 0 auto;
+      font-family: 'Georgia', serif;
+      text-transform: uppercase;
+    }
+
+    .brand-header {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 15px;
+      padding: 10px 0;
+    }
+
+    .logo-header {
+      width: 125px;
+      height: auto;
+      object-fit: contain;
+    }
+
+    .social-overlay {
+      position: fixed;
+      top: 50%;
+      right: 0;
+      transform: translateY(-50%);
+      z-index: 1000;
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+      background-color: rgba(0, 0, 0, 0.92);
+      padding: 16px 12px;
+      border-top-left-radius: 12px;
+      border-bottom-left-radius: 12px;
+      box-shadow: -4px 0 12px rgba(0, 0, 0, 0.4);
+      border-left: 2px solid var(--gold);
+    }
+    .social-overlay a {
+      color: var(--gold);
+      font-size: 1.7rem;
+      transition: transform 0.3s ease, color 0.3s ease;
+    }
+    .social-overlay a:hover {
+      transform: scale(1.25);
+      color: #ffd700;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 80px;
+    }
+    section {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.7s ease;
+    }
+    section.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    
+    .contact-info {
+  background-color: var(--gold);
+  color: var(--white);
+  padding: 40px 20px;
+  max-width: 1000px;
+  margin: 40px auto 20px auto;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(212, 175, 55, 0.3);
+  text-align: center;
+}
+
+.contact-info h3 {
+  font-size: 2rem;
+  margin-bottom: 25px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+}
+
+.contact-details {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 30px;
+}
+
+.contact-details div {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 1.1rem;
+  min-width: 180px;
+  justify-content: center;
+}
+
+.contact-details i {
+  font-size: 1.5rem;
+}
+  
+@media (max-width: 600px) {
+  .contact-details {
+    flex-direction: column;
+    gap: 20px;
+  }
+}
+.contact-info {
+  background-color: var(--gold);
+  color: var(--white);
+  padding: 40px 20px;
+  max-width: 1000px;
+  margin: 40px auto 20px auto;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(212, 175, 55, 0.3);
+  text-align: center;
+}
+
+.contact-info h3 {
+  font-size: 2rem;
+  margin-bottom: 25px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+}
+
+.contact-details {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 30px;
+}
+
+.contact-details div {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 1.1rem;
+  min-width: 180px;
+  justify-content: center;
+}
+
+.contact-details i {
+  font-size: 1.5rem;
+}
+  
+@media (max-width: 600px) {
+  .contact-details {
+    flex-direction: column;
+    gap: 20px;
+  }
+}
+/* === Overlay Conditions d'utilisation - Version mobile fixée === */
+#rules-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.88);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 99999; /* monte très haut dans la pile */
+  overflow-y: auto; /* si le contenu dépasse l'écran sur mobile */
+  padding: 20px;
+  transition: opacity 0.4s ease;
+}
+/* Si l’overlay est caché par le JS, il ne bloque plus rien */
+#rules-overlay.hidden {
+  opacity: 0;
+  pointer-events: none;
+  visibility: hidden;
+}
+
+#rules-overlay.fade-out {
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Boîte du texte */
+.rules-box {
+  background-color: #fff;
+  color: #111;
+  padding: 30px 25px;
+  border-radius: 14px;
+  max-width: 480px;
+  width: 100%;
+  text-align: center;
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.4);
+  position: relative;
+  z-index: 100000;
+}
+
+/* Texte et boutons */
+.rules-box h2 {
+  color: var(--gold);
+  margin-bottom: 15px;
+  font-size: 1.6rem;
+}
+
+.rules-box .intro {
+  font-size: 0.95rem;
+  margin-bottom: 20px;
+  color: #333;
+  line-height: 1.5;
+}
+
+.rules-list {
+  text-align: left;
+  margin-bottom: 25px;
+  line-height: 1.6;
+  font-size: 0.9rem;
+}
+
+.rules-actions {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.rules-actions button,
+.rules-actions a {
+  background-color: var(--gold);
+  color: #fff;
+  border: none;
+  padding: 10px 22px;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.rules-actions button:hover,
+.rules-actions a:hover {
+  background-color: #caa52f;
+  transform: scale(1.05);
+}
+
+/* === Optimisation mobile === */
+@media (max-width: 600px) {
+  #rules-overlay {
+    align-items: flex-start; /* évite d'être coupé par la barre d'adresse */
+    padding-top: 60px;
+  }
+
+  .rules-box {
+    padding: 20px 15px;
+    font-size: 0.9rem;
+  }
+
+  .rules-box h2 {
+    font-size: 1.4rem;
+  }
+
+  .rules-list li {
+    margin-bottom: 8px;
+  }
+
+  .rules-actions button,
+  .rules-actions a {
+    padding: 8px 18px;
+    font-size: 0.9rem;
+  }
+  #rules-overlay[style*="display: none"] {
+  display: none !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
+
+}
+
+/* === Nouveau style premium pour l'overlay Google Reviews === */
+.google-reviews-box {
+  position: fixed;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  background: linear-gradient(135deg, #111111, #1e1e1e);
+  border-right: 2px solid var(--gold);
+  box-shadow: 4px 0 15px rgba(0, 0, 0, 0.5);
+  border-top-right-radius: 18px;
+  border-bottom-right-radius: 18px;
+  padding: 18px 20px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  z-index: 1000;
+  transition: all 0.4s ease;
+}
+
+.google-reviews-box:hover {
+  transform: translateY(-50%) scale(1.08);
+  background: linear-gradient(135deg, #181818, #292929);
+  box-shadow: 6px 0 20px rgba(212, 175, 55, 0.4);
+}
+
+.google-reviews-box img {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: #fff;
+  padding: 4px;
+  box-shadow: 0 0 10px rgba(212, 175, 55, 0.5);
+}
+
+.google-reviews-box .google-text {
+  display: flex;
+  flex-direction: column;
+  font-size: 0.95rem;
+  color: var(--white);
+  line-height: 1.3;
+}
+
+.google-reviews-box .stars {
+  color: var(--gold);
+  font-size: 1.1rem;
+  letter-spacing: 1px;
+  text-shadow: 0 0 6px rgba(212, 175, 55, 0.6);
+}
+
+.google-reviews-box .google-text p {
+  font-weight: 600;
+  margin-top: 3px;
+  color: var(--white);
+}
+
+.google-reviews-box .google-text small {
+  font-size: 0.8rem;
+  color: #ccc;
+  margin-top: 2px;
+  transition: color 0.3s ease;
+}
+
+.google-reviews-box a {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: inherit;
+}
+
+.google-reviews-box a:hover .google-text small {
+  color: var(--gold);
+}
+
+/* === Nouveau Header Immersif === */
+.hero-header {
+  position: relative;
+  width: 100%;
+  height: 25vh;
+  background: url("Voiture de Luxe Sous l'Eau.jpg") center/cover no-repeat;
+  overflow: hidden;
+}
+
+
+.hero-header::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at top right, rgba(212,175,55,0.3), transparent 60%),
+              linear-gradient(to bottom, rgba(0,0,0,0.6), rgba(0,0,0,0.9));
+  animation: shimmer 8s infinite alternate ease-in-out;
+  z-index: 1;
+}
+
+@keyframes shimmer {
+  0% { background-position: 0% 0%; }
+  100% { background-position: 100% 100%; }
+}
+
+/* Overlay interne */
+.hero-overlay {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: space-between;
+}
+
+/* === Navigation === */
+.nav-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 25px 60px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  backdrop-filter: blur(12px);
+  background: rgba(17,17,17,0.45);
+  border-bottom: 1px solid rgba(212,175,55,0.3);
+  z-index: 1000;
+  transition: all 0.3s ease;
+}
+
+.nav-bar.scrolled {
+  background: rgba(17,17,17,0.9);
+  padding: 12px 50px;
+}
+
+.nav-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.nav-logo img {
+  height: 55px;
+  width: auto;
+  filter: drop-shadow(0 0 6px rgba(212,175,55,0.5));
+}
+
+.nav-logo span {
+  color: var(--gold);
+  font-size: 1.6rem;
+  font-weight: 700;
+  font-family: 'Georgia', serif;
+  letter-spacing: 1px;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 30px;
+}
+
+.nav-links a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+.nav-links a::after {
+  content: "";
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0%;
+  height: 2px;
+  background-color: var(--gold);
+  transition: width 0.3s ease;
+}
+
+.nav-links a:hover::after {
+  width: 100%;
+}
+
+/* === CTA Button === */
+.cta-btn {
+  background: var(--gold);
+  color: var(--white);
+  padding: 10px 22px;
+  border-radius: 25px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 10px rgba(212,175,55,0.4);
+}
+
+.cta-btn:hover {
+  background: #caa52f;
+  box-shadow: 0 0 16px rgba(212,175,55,0.6);
+}
+
+/* === Hero Text === */
+.hero-content {
+  text-align: center;
+  color: white;
+  padding-bottom: 120px;
+  max-width: 700px;
+  margin: 0 auto;
+  animation: fadeInUp 1.2s ease forwards;
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.hero-title {
+  font-size: 2.8rem;
+  font-weight: 700;
+  margin-bottom: 15px;
+  color: var(--gold);
+  text-shadow: 0 2px 10px rgba(0,0,0,0.6);
+}
+
+.hero-subtitle {
+  font-size: 1.2rem;
+  color: #ddd;
+  line-height: 1.5;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .nav-links {
+    display: none; /* caché par défaut */
+    flex-direction: column;
+    gap: 20px;
+    background: rgba(17,17,17,0.95);
+    position: absolute;
+    top: 60px;
+    width: 100%;
+    left: 0;
+    padding: 15px;
+    border-radius: 0 0 10px 10px;
+  }
+  .nav-links.active { display: flex; }
+  .hamburger { display: block; background: none; border: none; font-size: 1.8rem; color: var(--gold); cursor: pointer; }
+}
+/* === Responsive amélioré EagleWash === */
+@media (max-width: 900px) {
+  .nav-bar {
+    padding: 15px 25px;
+  }
+
+  .nav-logo span {
+    font-size: 1.3rem;
+  }
+
+  .cta-btn {
+    padding: 8px 16px;
+    font-size: 0.9rem;
+  }
+
+  .hero-title {
+    font-size: 2rem;
+  }
+
+  .hero-subtitle {
+    font-size: 1rem;
+  }
+
+  .section, .presentation {
+    padding: 40px 15px;
+  }
+
+  .bloc {
+    flex-direction: column !important;
+    align-items: center;
+    text-align: center;
+  }
+
+  .bloc-img img {
+    width: 90%;
+    max-width: 350px;
+  }
+
+  .bloc-texte {
+    width: 100%;
+  }
+
+  .social-overlay,
+  .google-reviews-box {
+    display: none; /* cache les overlays sur mobile pour éviter l’encombrement */
+  }
+}
+
+/* === Petits téléphones (600px et moins) === */
+@media (max-width: 600px) {
+  header h1 {
+    font-size: 1.8rem;
+  }
+
+  .nav-bar {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .hero-content {
+    padding-bottom: 60px;
+  }
+
+  .presentation {
+    margin: 20px auto;
+    gap: 40px;
+  }
+
+  .bloc-img img {
+    width: 100%;
+  }
+
+  .contact-info {
+    padding: 25px 15px;
+    font-size: 0.9rem;
+  }
+
+  .contact-details {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  footer {
+    padding: 15px;
+    font-size: 0.8rem;
+  }
+}
+/* Hamburger visible sur mobile seulement */
+.hamburger {
+  display: none;
+  font-size: 1.8rem;
+  background: none;
+  border: none;
+  color: var(--gold);
+  cursor: pointer;
+}
+
+/* Menu mobile caché par défaut */
+.nav-links {
+  display: flex;
+  gap: 30px;
+}
+
+@media (max-width: 600px) {
+  .hamburger {
+    display: block;
+  }
+
+  .nav-links {
+    display: none; /* caché par défaut */
+    flex-direction: column;
+    gap: 20px;
+    background: rgba(17,17,17,0.95);
+    position: absolute;
+    top: 60px;
+    width: 100%;
+    left: 0;
+    padding: 15px;
+    border-radius: 0 0 10px 10px;
+  }
+
+  /* Classe active pour afficher le menu */
+  .nav-links.active {
+    display: flex;
+  }
+}
+
+
+    
+  </style>
+</head>
+
+
+  <body>
+  <!-- === Overlay de règles === -->
+  <div id="rules-overlay">
+    <div class="rules-box">
+      <h2>📜 Conditions d’utilisation</h2>
+      <p class="intro">Avant d’accéder au site <strong>Eagle Wash</strong>, veuillez prendre connaissance de nos règles d’utilisation.</p>
+
+      <ul class="rules-list">
+        <li>Respecter les informations et services présentés sur le site.</li>
+        <li>Ne pas reproduire le contenu sans autorisation.</li>
+        <li>Respecter les horaires choisis pour nos prestations.</li>
+        <li>Accepter nos <a href="cgu.html" target="_blank">conditions générales d’utilisation</a>.</li>
+        <li>Lire notre <a href="politique-confidentialite.html" target="_blank">politique de confidentialité</a>.</li>
+      </ul>
+
+      <div class="rules-actions">
+        <button id="accept-rules">J’accepte</button>
+        <a href="https://google.com" id="refuse-rules">Je refuse</a>
+      </div>
+    </div>
+  </div>
+
+<!-- === Nouveau HEADER EagleWash === -->
+<header class="hero-header">
+  <div class="hero-overlay">
+ <!-- Hamburger -->
+<button id="menu-toggle" class="hamburger">☰</button>
+<ul class="nav-links mobile-hidden">
+  <li><a href="index.html">Accueil</a></li>
+  <li><a href="services.html">Services</a></li>
+  <li><a href="about.html">À propos</a></li>
+  <li><a href="contact.html">Contact</a></li>
+</ul>
+    <!-- Overlay de règles - Version élégante EagleWash -->
+
+</div>
+<br>
+  </br>
+  <br>
+  </br>
+    <div class="hero-content">
+      <h1 class="hero-title">L’excellence du lavage auto à domicile</h1>
+      <p class="hero-subtitle">Service haut de gamme, écologique et professionnel dans le Haut-Rhin.</p>
+    </div>
+  </div>
+</header>
+
+
+  <main id="content" role="main">
+    <div class="intro-message">
+      <p>Chez <strong>Eagle Wash</strong>, spécialiste du <strong>lavage auto à domicile</strong> dans le <strong>Haut-Rhin</strong>, nous offrons un service rapide, écologique et haut de gamme.</p>
+      <p><a href="contact.html.html" style="color: var(--gold); text-decoration: underline; font-weight: bold;">Contactez Eagle Wash</a> pour un <strong>lavage auto à domicile professionnel</strong>.</p>
+    </div>
+
+    <section class="presentation">
+      <div class="bloc bloc-01">
+        <div class="bloc-img">
+          <img src="image/dashboard wax.jpg" alt="lavage interieur et exterieur" />
+        </div>
+        <div class="bloc-texte">
+          <span class="numero">01</span>
+          <h3>À propos</h3>
+          <p>Découvrez nos engagements pour une qualité de nettoyage irréprochable à chaque intervention.</p>
+          <a href="about.html.html">EN APPRENDRE PLUS →</a>
+        </div>
+      </div>
+
+
+      <!-- Start of OpenWidget (www.openwidget.com) code -->
+<script>
+  window.__ow = window.__ow || {};
+  window.__ow.organizationId = "2a6e4101-78f3-43f8-bb1e-6dccc29a7a23";
+  window.__ow.integration_name = "manual_settings";
+  window.__ow.product_name = "openwidget";   
+  ;(function(n,t,c){function i(n){return e._h?e._h.apply(null,n):e._q.push(n)}var e={_q:[],_h:null,_v:"2.0",on:function(){i(["on",c.call(arguments)])},once:function(){i(["once",c.call(arguments)])},off:function(){i(["off",c.call(arguments)])},get:function(){if(!e._h)throw new Error("[OpenWidget] You can't use getters before load.");return i(["get",c.call(arguments)])},call:function(){i(["call",c.call(arguments)])},init:function(){var n=t.createElement("script");n.async=!0,n.type="text/javascript",n.src="https://cdn.openwidget.com/openwidget.js",t.head.appendChild(n)}};!n.__ow.asyncInit&&e.init(),n.OpenWidget=n.OpenWidget||e}(window,document,[].slice))
+</script>
+<noscript>You need to <a href="https://www.openwidget.com/enable-javascript" rel="noopener nofollow">enable JavaScript</a> to use the communication tool powered by <a href="https://www.openwidget.com/" rel="noopener nofollow" target="_blank">OpenWidget</a></noscript>
+<!-- End of OpenWidget code -->
+
+
+
+
+      <div class="bloc bloc-02">
+        <div class="bloc-img">
+          <img src="image/fa849da5e31eeaa96d2dcccffdf9cd4b.jpg" alt="entretien voiture" />
+        </div>
+        <div class="bloc-texte">
+          <span class="numero">02</span>
+          <h3>Mes tarifs & services</h3>
+          <p>Explorez les différentes formules de lavage et detailing conçues pour valoriser et protéger votre véhicule.</p>
+          <a href="services.html.html">EN SAVOIR PLUS →</a>
+        </div>
+      </div>
+
+      <div class="bloc bloc-03">
+        <div class="bloc-img">
+          <img src="image/nettoyage injecteur.jpg" alt="Nettoyage de pneu" />
+        </div>
+        <div class="bloc-texte">
+          <span class="numero">03</span>
+          <h3>Contactez-moi</h3>
+          <p>Besoin d’un devis ou d’un rendez-vous ? Je suis à votre écoute pour toute demande personnalisée.</p>
+          <a href="contact.html.html">CONTACTEZ MAINTENANT →</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact-info">
+      <h3>Contactez-nous</h3>
+      <div class="contact-details">
+        <div><i class="fas fa-phone-alt"></i><p>+33 06 37 20 35 67</p></div>
+        <div><i class="fas fa-envelope"></i><p>eaglewash68@gmail.com</p></div>
+        <div><i class="fas fa-clock"></i><p>7j/7 : 8h - 20h</p></div>
+      </div>
+    </section>
+  </main>
+
+
+
+  <div class="social-overlay">
+    <a href="https://www.facebook.com/profile.php?id=61578955477444" target="_blank"><i class="fab fa-facebook-f"></i></a>
+    <a href="https://www.instagram.com/eaglewash688/" target="_blank"><i class="fab fa-instagram"></i></a>
+    <a href="https://www.tiktok.com/@eaglewash68" target="_blank"><i class="fab fa-tiktok"></i></a>
+  </div>
+
+
+
+
+
+
+  <footer role="contentinfo">
+    <div class="bottombar">
+      <p>&copy; 2025 Eagle Wash — Tous droits réservés |
+        <a href="mentions-legales.html">Mentions légales</a> |
+        <a href="politique-confidentialite.html">Politique de confidentialité</a> |
+        <a href="cgu.html">CGU</a>
+      </p>
+    </div>
+  </footer>
+  <script>
+  // Overlay obligatoire tant que non accepté
+  document.addEventListener("DOMContentLoaded", () => {
+    const overlay = document.getElementById("rules-overlay");
+    const acceptBtn = document.getElementById("accept-rules");
+
+    // Si déjà accepté → on ne réaffiche pas
+ if (localStorage.getItem("rulesAccepted") === "true") {
+  overlay.remove(); // retire complètement l’overlay
+} else {
+  document.body.style.overflow = "hidden";
+}
+
+
+    // Quand on accepte
+    acceptBtn.addEventListener("click", () => {
+      localStorage.setItem("rulesAccepted", "true");
+      overlay.classList.add("fade-out");
+      document.body.style.overflow = "auto"; // réactive le scroll
+      setTimeout(() => overlay.remove(), 400);
+    });
+  });
+</script>
+
+
+
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const sections = document.querySelectorAll("section");
+      const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) entry.target.classList.add("visible");
+        });
+      }, { threshold: 0.2 });
+      sections.forEach(section => observer.observe(section));
+    });
+
+    window.addEventListener('load', () => {
+      document.body.classList.add('loaded');
+    });
+  </script>
+
+<script>
+window.addEventListener("scroll", () => {
+  const navbar = document.querySelector(".nav-bar");
+  if (window.scrollY > 60) {
+    navbar.classList.add("scrolled");
+  } else {
+    navbar.classList.remove("scrolled");
+  }
+});
+
+document.addEventListener("DOMContentLoaded", () => {
+  const menuToggle = document.getElementById("menu-toggle");
+  const navLinks = document.querySelector(".nav-links");
+
+  menuToggle.addEventListener("click", () => {
+    navLinks.classList.toggle("active");
+  });
+});
+</script>
+
+
+
+</body>
+</html>

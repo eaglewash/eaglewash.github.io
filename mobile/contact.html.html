@@ -1,0 +1,1386 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+   <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-QV8FN8938V"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-QV8FN8938V');
+  </script>
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>EagleWash – Service de lavage auto à domicile</title>
+  <meta name="description" content="EagleWash propose le lavage de voiture à domicile, rapide et écologique. Réservez en ligne facilement !">
+  <meta name="keywords" content="lavage auto, nettoyage voiture, detailing, domicile, écologique">
+  <meta name="google-site-verification" content="Tb2h4gzzvAORSCI5vD2gMbnH6v7Q-emwyhCcQmXA74c" />
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-..." crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <style>
+    :root {
+      --gold: #D4AF37;
+      --white: #ffffff;
+      --black: #111111;
+      --gray: #f5f5f5;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+   body {
+  background-color: #e8e6e1; /* gris-beige doux, élégant */
+  color: var(--black);
+}
+
+    header {
+      background-color: var(--white);
+      padding: 20px;
+      text-align: center;
+      border-bottom: 2px solid var(--gold);
+    }
+
+    header h1 {
+      color: var(--gold);
+      font-size: 2.5rem;
+      letter-spacing: 2px;
+    }
+
+      nav.topbar-nav {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  margin-top: 15px;
+}
+
+nav.topbar-nav a {
+  position: relative;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--gold);
+  text-decoration: none;
+  letter-spacing: 1px;
+  padding: 6px 0;
+  transition: color 0.3s ease;
+}
+
+nav.topbar-nav a::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 0%;
+  height: 1.5px;
+  background-color: var(--white);
+  transition: all 0.3s ease;
+  transform: translateX(-50%);
+}
+
+nav.topbar-nav a:hover {
+  color: var(--gold);
+}
+
+nav.topbar-nav a:hover::after {
+  width: 60%;
+}
+
+
+    .hero {
+      background: linear-gradient(to bottom right, #fff, #f8f4eb);
+      padding: 60px 20px;
+      text-align: center;
+    }
+
+    .hero h2 {
+      color: var(--gold);
+      font-size: 2.2rem;
+      margin-bottom: 15px;
+    }
+
+    .hero p {
+      font-size: 1.1rem;
+      max-width: 700px;
+      margin: auto;
+      color: #333;
+    }
+
+    .cta {
+      margin-top: 30px;
+    }
+
+    .cta a {
+      background-color: var(--gold);
+      color: var(--white);
+      text-decoration: none;
+      padding: 12px 25px;
+      font-weight: bold;
+      border-radius: 5px;
+      transition: background-color 0.3s ease;
+    }
+
+    .cta a:hover {
+      background-color: #c89b2c;
+    }
+
+    .section {
+      padding: 60px 20px;
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    .section h3 {
+      color: var(--gold);
+      font-size: 1.8rem;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .section p {
+      text-align: center;
+      font-size: 1.05rem;
+      color: #333;
+      max-width: 800px;
+      margin: auto;
+    }
+
+    .values {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 30px;
+      margin-top: 40px;
+    }
+
+    .value-item {
+      width: 250px;
+      background-color: var(--white);
+      border: 1px solid var(--gold);
+      padding: 20px;
+      border-radius: 10px;
+      text-align: center;
+      box-shadow: 0 0 10px rgba(212, 175, 55, 0.1);
+    }
+
+    .value-item h4 {
+      color: var(--gold);
+      margin-bottom: 10px;
+    }
+
+    footer {
+      background-color: var(--white);
+      color: var(--black);
+      text-align: center;
+      padding: 20px;
+      border-top: 2px solid var(--gold);
+      margin-top: 40px;
+    }
+
+    @media (max-width: 768px) {
+      nav {
+        flex-direction: column;
+        gap: 15px;
+      }
+
+      .values {
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+
+.topbar, .bottombar {
+  background-color: var(--black);
+  color: var(--white);
+  padding: 10px 20px;
+  font-size: 0.9rem;
+}
+
+.topbar-nav {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.topbar-nav a {
+  color: var(--white);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.topbar-nav a:hover {
+  color: var(--gold);
+}
+
+.bottombar {
+  text-align: center;
+  font-size: 0.85rem;
+  border-top: 2px solid var(--gold);
+  margin-top: 40px;
+}
+form {
+  background-color: var(--white);
+  padding: 40px 30px;
+  border: 1px solid var(--gold);
+  border-radius: 12px;
+  max-width: 700px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+form input, form textarea, form button {
+  font-size: 1rem;
+  padding: 12px 15px;
+  border: 1px solid var(--gold);
+  border-radius: 8px;
+  background-color: var(--white);
+  color: var(--black);
+}
+
+form input:focus,
+form textarea:focus {
+  outline: none;
+  border-color: var(--black);
+}
+
+form textarea {
+  min-height: 100px;
+  resize: vertical;
+}
+
+form button {
+  background-color: var(--gold);
+  color: var(--white);
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+  border-radius: 8px;
+  transition: background-color 0.3s ease;
+}
+
+form button:hover {
+  background-color: #c89b2c;
+}
+
+#choix-categorie {
+  margin-top: 10px;
+}
+
+.categorie-option {
+  padding: 18px;
+  border: 1px solid var(--gold);
+  border-radius: 10px;
+  text-align: center;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  font-weight: 500;
+}
+
+.categorie-option:hover {
+  background-color: var(--gold);
+  color: var(--white);
+}
+
+.categorie-option.selected {
+  background-color: var(--gold);
+  color: var(--white);
+  font-weight: bold;
+}
+
+label span a {
+  color: var(--gold);
+}
+.brand-title {
+  font-size: 3rem; /* Plus grand */
+  font-weight: 700;
+  letter-spacing: 2px;
+  color: var(--gold);
+  text-align: center;
+  margin: 0 auto;
+  font-family: 'Georgia', serif; /* ou une autre police élégante */
+  text-transform: uppercase;
+}
+.brand-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  padding: 10px 0;
+}
+
+.logo-header {
+  width: 125px; /* Taille du logo */
+  height: auto;
+  object-fit: contain;
+}
+.social-overlay {
+  position: fixed;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  background-color: rgba(0, 0, 0, 0.92);
+  padding: 16px 12px;
+  border-top-left-radius: 12px;
+  border-bottom-left-radius: 12px;
+  box-shadow: -4px 0 12px rgba(0, 0, 0, 0.4);
+  border-left: 2px solid var(--gold);
+}
+
+.social-overlay a {
+  color: var(--gold);
+  font-size: 1.7rem;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.social-overlay a:hover {
+  transform: scale(1.25);
+  color: #ffd700;
+}
+.contact-info {
+  background-color: var(--gold);
+  color: var(--white);
+  padding: 40px 20px;
+  max-width: 1000px;
+  margin: 40px auto 20px auto;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(212, 175, 55, 0.3);
+  text-align: center;
+}
+
+.contact-info h3 {
+  font-size: 2rem;
+  margin-bottom: 25px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+}
+
+.contact-details {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 30px;
+}
+
+.contact-details div {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 1.1rem;
+  min-width: 180px;
+  justify-content: center;
+}
+
+.contact-details i {
+  font-size: 1.5rem;
+}
+  
+@media (max-width: 600px) {
+  .contact-details {
+    flex-direction: column;
+    gap: 20px;
+  }
+}
+@media (max-width: 768px) {
+  .bloc {
+    flex-direction: column !important;
+    align-items: center;
+    text-align: center;
+  }
+
+  .bloc-img img {
+    width: 100%;
+    max-width: 300px;
+  }
+
+  .bloc-texte {
+    width: 100%;
+  }
+}
+@media (max-width: 768px) {
+  .bloc {
+    flex-direction: column !important;
+    align-items: center;
+    text-align: center;
+  }
+
+  .bloc-img img {
+    width: 100%;
+    max-width: 300px;
+  }
+
+  .bloc-texte {
+    width: 100%;
+  }
+
+  .btn-devis {
+    width: 90%;
+    font-size: 1rem;
+  }
+
+  .topbar-nav {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .brand-header {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .logo-header {
+    width: 100px;
+  }
+}
+#luxury-price {
+  margin-top: 20px;
+  padding: 15px 20px;
+  background: linear-gradient(to right, #fff, #f8f8f8);
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: 'Georgia', serif;
+  font-size: 1.4rem;
+}
+#luxury-price strong {
+  color: #d4af37; /* doré */
+  font-size: 1.8rem;
+}
+.packs-grid .pack-option:hover {
+  background-color: var(--gold);
+  color: var(--white);
+  transition: all 0.3s ease;
+}
+/* === Nouveau Header Immersif === */
+.hero-header {
+  position: relative;
+  width: 100%;
+  height: 45vh;
+  background: url("Voiture de Luxe Sous l'Eau.jpg") center/cover no-repeat;
+  overflow: hidden;
+}
+
+
+.hero-header::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at top right, rgba(212,175,55,0.3), transparent 60%),
+              linear-gradient(to bottom, rgba(0,0,0,0.6), rgba(0,0,0,0.9));
+  animation: shimmer 8s infinite alternate ease-in-out;
+  z-index: 1;
+}
+
+@keyframes shimmer {
+  0% { background-position: 0% 0%; }
+  100% { background-position: 100% 100%; }
+}
+
+/* Overlay interne */
+.hero-overlay {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: space-between;
+}
+
+/* === Navigation === */
+.nav-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 25px 60px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  backdrop-filter: blur(12px);
+  background: rgba(17,17,17,0.45);
+  border-bottom: 1px solid rgba(212,175,55,0.3);
+  z-index: 1000;
+  transition: all 0.3s ease;
+}
+
+.nav-bar.scrolled {
+  background: rgba(17,17,17,0.9);
+  padding: 12px 50px;
+}
+
+.nav-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.nav-logo img {
+  height: 55px;
+  width: auto;
+  filter: drop-shadow(0 0 6px rgba(212,175,55,0.5));
+}
+
+.nav-logo span {
+  color: var(--gold);
+  font-size: 1.6rem;
+  font-weight: 700;
+  font-family: 'Georgia', serif;
+  letter-spacing: 1px;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 30px;
+}
+
+.nav-links a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+.nav-links a::after {
+  content: "";
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0%;
+  height: 2px;
+  background-color: var(--gold);
+  transition: width 0.3s ease;
+}
+
+.nav-links a:hover::after {
+  width: 100%;
+}
+
+/* === CTA Button === */
+.cta-btn {
+  background: var(--gold);
+  color: var(--white);
+  padding: 10px 22px;
+  border-radius: 25px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 10px rgba(212,175,55,0.4);
+}
+
+.cta-btn:hover {
+  background: #caa52f;
+  box-shadow: 0 0 16px rgba(212,175,55,0.6);
+}
+
+/* === Hero Text === */
+.hero-content {
+  text-align: center;
+  color: white;
+  padding-bottom: 120px;
+  max-width: 700px;
+  margin: 0 auto;
+  animation: fadeInUp 1.2s ease forwards;
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.hero-title {
+  font-size: 2.8rem;
+  font-weight: 700;
+  margin-bottom: 15px;
+  color: var(--gold);
+  text-shadow: 0 2px 10px rgba(0,0,0,0.6);
+}
+
+.hero-subtitle {
+  font-size: 1.2rem;
+  color: #ddd;
+  line-height: 1.5;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .nav-links {
+    flex-direction: column;
+    align-items: center;
+    background: rgba(17,17,17,0.9);
+    padding: 15px;
+    border-radius: 8px;
+  }
+  .cta-btn {
+    padding: 8px 18px;
+  }
+  .hero-title {
+    font-size: 2rem;
+  }
+  .hero-subtitle {
+    font-size: 1rem;
+  }
+}
+/* === Responsive amélioré EagleWash === */
+@media (max-width: 900px) {
+  .nav-bar {
+    padding: 15px 25px;
+  }
+
+  .nav-logo span {
+    font-size: 1.3rem;
+  }
+
+  .cta-btn {
+    padding: 8px 16px;
+    font-size: 0.9rem;
+  }
+
+  .hero-title {
+    font-size: 2rem;
+  }
+
+  .hero-subtitle {
+    font-size: 1rem;
+  }
+
+  .section, .presentation {
+    padding: 40px 15px;
+  }
+
+  .bloc {
+    flex-direction: column !important;
+    align-items: center;
+    text-align: center;
+  }
+
+  .bloc-img img {
+    width: 90%;
+    max-width: 350px;
+  }
+
+  .bloc-texte {
+    width: 100%;
+  }
+
+  .social-overlay,
+  .google-reviews-box {
+    display: none; /* cache les overlays sur mobile pour éviter l’encombrement */
+  }
+}
+
+/* === Petits téléphones (600px et moins) === */
+@media (max-width: 600px) {
+  header h1 {
+    font-size: 1.8rem;
+  }
+
+  .nav-bar {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .hero-content {
+    padding-bottom: 60px;
+  }
+
+  .presentation {
+    margin: 20px auto;
+    gap: 40px;
+  }
+
+  .bloc-img img {
+    width: 100%;
+  }
+
+  .contact-info {
+    padding: 25px 15px;
+    font-size: 0.9rem;
+  }
+
+  .contact-details {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  footer {
+    padding: 15px;
+    font-size: 0.8rem;
+  }
+}
+
+
+
+  </style>
+</head>
+<body>
+
+<!-- === Nouveau HEADER EagleWash === -->
+<header class="hero-header">
+  <div class="hero-overlay">
+    <nav class="nav-bar">
+      <div class="nav-logo">
+        <img src="image/logo_EAGL_WASH_DETOURER.png" alt="Eagle Wash logo">
+        <span>Eagle Wash</span>
+      </div>
+      <ul class="nav-links">
+        <li><a href="index.html">Accueil</a></li>
+        <li><a href="services.html.html">Services</a></li>
+        <li><a href="about.html.html">À propos</a></li>
+        <li><a href="contact.html.html">Contact</a></li>
+      </ul>
+      <a href="contact.html.html" class="cta-btn">Réserver maintenant</a>
+    </nav>
+<br>
+  </br>
+  <br>
+  </br>
+    <div class="hero-content">
+      <h1 class="hero-title">L’excellence du lavage auto à domicile</h1>
+      <p class="hero-subtitle">Service haut de gamme, écologique et professionnel dans le Haut-Rhin.</p>
+    </div>
+  </div>
+</header>
+
+
+
+  <section class="hero">
+    <h2>Votre voiture mérite l'excellence</h2>
+    <p>
+Besoin d’un <strong>devis personnalisé</strong> pour un <strong>lavage auto à domicile</strong> ou un <strong>nettoyage automobile complet</strong> ?  
+<strong>Eagle Wash</strong> met à votre disposition un service rapide et professionnel dans tout le <strong>Haut-Rhin (68)</strong>, notamment à <strong>Mulhouse</strong>, <strong>Colmar</strong> et <strong>Belfort</strong>.  
+Que ce soit pour un <strong>detailing intérieur</strong>, un <strong>lavage extérieur</strong>, un <strong>entretien complet de véhicule</strong>, nous vous accompagnons avec des prestations haut de gamme, réalisées avec précision et des produits <strong>écologiques</strong>.
+</p>
+<p>
+Remplissez le formulaire ci-dessous pour obtenir votre <strong>devis de lavage auto</strong> sur mesure.  
+Nous vous répondrons rapidement afin de planifier votre <strong>intervention à domicile</strong> selon vos besoins et votre emploi du temps.
+</p>
+    <section class="section" id="reservation">
+    <div style="margin: 40px 0;">
+  <div id="calendrier-dispos" style="display: grid; grid-template-columns: repeat(7, 1fr); gap: 10px; margin-top: 10px;"></div>
+</div>
+
+
+
+
+    <h2> Réserver un Lavage avec une des deux options </h2>
+
+</div>
+  <div style="background:linear-gradient(90deg,#fff,#fff8e8); border:2px solid var(--gold); padding:20px; border-radius:12px; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:12px; box-shadow:0 10px 30px rgba(212,175,55,0.12);">
+            <h3 style="color:var(--gold); margin:0; font-size:1.2rem;"> Réserver via Calendly</h3>
+            <p style="color:#333; text-align:center; max-width:720px;">Réservez en quelques clics et choisissez un créneau disponible sur notre calendrier en ligne pour convenir à la création d'un devis en notre compagnie.</p>
+            <a href="https://calendly.com/eaglewash68/reservations-eagle-wash" target="_blank" rel="noopener noreferrer" class="calendly-btn" style="display:inline-block; padding:14px 22px; border-radius:10px; font-weight:700; background:linear-gradient(90deg,var(--gold),#c89b2c); color:var(--white); text-decoration:none; box-shadow:0 8px 18px rgba(212,175,55,0.28);">➡️ Réserver via Calendly</a>
+            <small style="color:#666;">S'ouvre dans un nouvel onglet</small>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+<br>
+
+</br>
+<br>
+</br>
+
+      <!-- Start of OpenWidget (www.openwidget.com) code -->
+<script>
+  window.__ow = window.__ow || {};
+  window.__ow.organizationId = "2a6e4101-78f3-43f8-bb1e-6dccc29a7a23";
+  window.__ow.integration_name = "manual_settings";
+  window.__ow.product_name = "openwidget";   
+  ;(function(n,t,c){function i(n){return e._h?e._h.apply(null,n):e._q.push(n)}var e={_q:[],_h:null,_v:"2.0",on:function(){i(["on",c.call(arguments)])},once:function(){i(["once",c.call(arguments)])},off:function(){i(["off",c.call(arguments)])},get:function(){if(!e._h)throw new Error("[OpenWidget] You can't use getters before load.");return i(["get",c.call(arguments)])},call:function(){i(["call",c.call(arguments)])},init:function(){var n=t.createElement("script");n.async=!0,n.type="text/javascript",n.src="https://cdn.openwidget.com/openwidget.js",t.head.appendChild(n)}};!n.__ow.asyncInit&&e.init(),n.OpenWidget=n.OpenWidget||e}(window,document,[].slice))
+</script>
+<noscript>You need to <a href="https://www.openwidget.com/enable-javascript" rel="noopener nofollow">enable JavaScript</a> to use the communication tool powered by <a href="https://www.openwidget.com/" rel="noopener nofollow" target="_blank">OpenWidget</a></noscript>
+<!-- End of OpenWidget code -->
+
+    <form id="contactForm">
+          <h3> J'ai besoin d'en savoir un peu plus sur vous -> </h3>
+      <input type="text" name="nom" placeholder="Votre Nom et Prénom" required />
+      <input type="email" name="email" placeholder="Votre adresse email" required />
+      <input type="tel" name="tel" placeholder="Votre numero de Téléphone" required />
+      <input type="adresse" name="adresse" placeholder="Votre adresse postal" required />
+      <input type="ville" name="ville" placeholder="La ville où se situe l'adresse ci-dessus" required />
+      <br>
+  </br>
+   <div style="display: flex; justify-content: center; margin-bottom: 15px;">
+  <div style="border: 2px solid var(--gold); padding: 15px; border-radius: 8px; background-color: #fff; max-width: 400px; width: 100%;">
+    <!-- Sélection de la date -->
+    <label for="date-lavage" style="display:block; font-weight:bold; color:var(--gold); margin-bottom:8px; font-size:1.1rem; text-align:center;">
+      📅 Date souhaitée pour le lavage
+    </label>
+    <input 
+      type="date" 
+      id="date-lavage" 
+      name="date" 
+      required 
+      style="padding: 12px; border: 1px solid var(--gold); border-radius: 6px; width: 100%; font-size: 1rem; background-color: #fdfdfd; color: #333; margin-bottom:15px;"
+    >
+
+   <!-- Sélection de l'heure -->
+<label for="heure-lavage" style="display:block; font-weight:bold; color:var(--gold); margin-bottom:8px; font-size:1.1rem; text-align:center;">
+  ⏰ Heure souhaitée
+</label>
+<select 
+  id="heure-lavage" 
+  name="heure" 
+  required 
+  style="padding: 12px; border: 1px solid var(--gold); border-radius: 6px; width: 100%; font-size: 1rem; background-color: #fdfdfd; color: #333;">
+  <option value="">Sélectionnez d’abord une date</option>
+</select>
+
+
+    <!-- Texte explicatif -->
+    <p style="color:#777; font-size:0.9rem; margin-top:8px; text-align:center;">
+      Sélectionnez la date et l'heure auxquelles vous souhaitez que le lavage soit effectué.
+    </p>
+
+  </div>
+</div>
+
+      <input type="hidden" name="categorie" id="categorie" required />
+    <h3>Choisissez votre catégorie :</h3>
+<div id="choix-categorie" class="categorie-container" style="display: flex; flex-direction: column; gap: 20px;">
+  
+  <!-- Citadine -->
+  <div class="categorie-bloc">
+    <div class="categorie-option" data-categorie="citadine">🚗 Citadine</div>
+    <div class="packs-container" style="display:none; margin-top:10px;"></div>
+  </div>
+
+  <!-- Berline / SUV -->
+  <div class="categorie-bloc">
+    <div class="categorie-option" data-categorie="berline">🚙 Berline / SUV</div>
+    <div class="packs-container" style="display:none; margin-top:10px;"></div>
+  </div>
+
+  <!-- Utilitaire / Luxe -->
+  <div class="categorie-bloc">
+    <div class="categorie-option" data-categorie="utilitaire">🚐 Utilitaire / Luxe</div>
+    <div class="packs-container" style="display:none; margin-top:10px;"></div>
+  </div>
+
+</div>
+<label>
+  <input type="checkbox" 
+         name="supplement_exterieur" 
+         value="Oui" 
+         data-nom="Supplément extérieur" 
+         data-prix="15">
+  ✨ Supplément extérieur
+</label><br>
+
+
+
+    
+      <textarea name="message" placeholder="La prestations souhaitées, et details important pour le bon déroulé de notre intervention..." required></textarea>
+      <label style="display: flex; align-items: center; gap: 10px;">
+  <input type="checkbox" id="acceptCharte" required />
+ <span>J'ai lu et j'accepte la <a href="charte.html" target="_blank" style="color: var(--secondary); text-decoration: underline;">charte de services</a></span>
+
+</label>
+<div id="luxury-price">
+  <span>Total :</span>
+  <strong id="prix-total">0 €</strong>
+  <input type="hidden" name="prix_total" id="prix_total_hidden" value="0">
+
+</div>
+      <button type="submit" class="btn">Envoyer</button>
+    </form>
+    <div id="formMessage" style="margin-top:15px; color:#fff;"></div>
+
+     <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+     <div id="confirmationMessage" style="
+  background-color: #4caf50;
+  color: #fff;
+  padding: 15px;
+  margin-top: 20px;
+  border-radius: 8px;
+  display: none;
+  text-align: center;
+">
+  ✅ Merci pour votre réservation ! Nous avons bien reçu votre demande et vous serez contacté dans les plus brefs délais.
+
+  </section>
+
+ 
+<section class="contact-info">
+  <h3>Contactez-nous</h3>
+  <div class="contact-details">
+    <div>
+      <i class="fas fa-phone-alt"></i>
+      <p>+33 06 37 20 35 67 </p>
+    </div>
+    <div>
+      <i class="fas fa-envelope"></i>
+      <p>eaglewash68@gmail.com</p>
+    </div>
+    <div>
+      <i class="fas fa-clock"></i>
+      <p>7j/7 : 8h - 20h </p>
+    </div>
+  </div>
+</section>
+
+
+
+<div class="bottombar">
+  <p>
+    &copy; 2025 Eagle Wash — Tous droits réservés |
+    <a href="mentions-legales.html">Mentions légales</a> |
+    <a href="politique-confidentialite.html">Politique de confidentialité</a> |
+    <a href="cgu.html">CGU</a>
+  </p>
+</div>
+
+
+<!-- À placer juste avant </body> -->
+<div class="social-overlay">
+  <a href=https://www.facebook.com/profile.php?id=61578955477444 target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+  <a href=https://www.instagram.com/eaglewash688/ target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+  <a href=https://www.tiktok.com/@eaglewash68 target="_blank" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+</div>
+
+<!-- N'oublie pas Font Awesome dans le <head> si pas déjà présent -->
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-..." crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+<script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+<script>
+  (function(){
+    emailjs.init("pZzXEWP66OUMYX1u6"); // Remplace par ta clé publique EmailJS
+  })();
+
+  window.addEventListener("load", () => {
+    // Gestion du choix de catégorie
+document.querySelectorAll('.categorie-option').forEach(option => {
+  option.addEventListener('click', () => {
+    // Retirer la sélection précédente
+    document.querySelectorAll('.categorie-option').forEach(opt => opt.classList.remove('selected'));
+    
+    // Ajouter la sélection à l'option cliquée
+    option.classList.add('selected');
+    
+    // Mettre à jour la valeur cachée ou input
+    document.getElementById('categorie').value = option.getAttribute('data-value');
+    
+    // Appeler la fonction de calcul du prix
+    calculerPrix();
+  });
+    });
+
+    const form = document.getElementById("contactForm");
+    const confirmationMessage = document.getElementById("confirmationMessage");
+
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+      confirmationMessage.style.display = "none"; // cache le message précédent
+
+      const acceptCharte = document.getElementById("acceptCharte");
+      if (!acceptCharte.checked) {
+        confirmationMessage.style.background = "#e53935"; // rouge
+        confirmationMessage.innerText = "Vous devez accepter la charte avant d'envoyer le formulaire.";
+        confirmationMessage.style.display = "block";
+        return;
+      }
+
+      if (!document.getElementById('categorie').value) {
+        confirmationMessage.style.background = "#e53935"; // rouge
+        confirmationMessage.innerText = "Veuillez choisir un pack avant d'envoyer le formulaire.";
+        confirmationMessage.style.display = "block";
+        return;
+      }
+
+  const suppCheck = form.querySelector('input[name="supplement_exterieur"]');
+  if (!suppCheck.checked) {
+    const hiddenField = document.createElement("input");
+    hiddenField.type = "hidden";
+    hiddenField.name = "supplement_exterieur";
+    hiddenField.value = "Non";
+    form.appendChild(hiddenField);
+  }
+
+
+      // Envoi via EmailJS
+      emailjs.sendForm('service_7forll2', 'template_gs83geb', this)
+        .then(() => {
+          confirmationMessage.style.background = "#4caf50"; // vert
+          confirmationMessage.innerText = "✅ Merci pour votre réservation ! Nous avons bien reçu votre demande et vous serez contacté dans les plus brefs délais.";
+          confirmationMessage.style.display = "block";
+          form.reset();
+          document.querySelectorAll('.categorie-option').forEach(opt => opt.classList.remove('selected'));
+        }, (error) => {
+          confirmationMessage.style.background = "#e53935"; // rouge
+          confirmationMessage.innerText = "Erreur lors de l'envoi du formulaire. Veuillez réessayer plus tard.";
+          confirmationMessage.style.display = "block";
+          console.error('EmailJS error:', error);
+        });
+    });
+  });
+</script>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const prixBase = {
+      "Pack Éco – Citadine": 85,
+      "Pack Confort – Berline / SUV": 100,
+      "Pack Premium – Utilitaire / Luxe": 120,
+      "Supplément extérieur": 15
+    };
+
+    const checkboxSupplement = document.querySelector('input[type="checkbox"][data-nom="Supplément extérieur"]');
+    const categorieOptions = document.querySelectorAll('.categorie-option');
+    const inputCategorie = document.getElementById('categorie');
+    const prixTotalEl = document.getElementById('prix-total');
+
+    function calculerPrix() {
+      let categorie = inputCategorie.value;
+      if (!categorie) {
+        prixTotalEl.textContent = '0 €';
+        document.getElementById('prix_total_hidden').value = 0;
+        return;
+      }
+
+      let prix = prixBase[categorie] || 0;
+
+      if (checkboxSupplement.checked) {
+        prix += prixBase["Supplément extérieur"];
+      }
+
+      prixTotalEl.textContent = prix + ' €';
+      document.getElementById('prix_total_hidden').value = prix;
+    }
+
+    // Mise à jour du prix quand on clique sur une catégorie
+    categorieOptions.forEach(option => {
+      option.addEventListener('click', () => {
+        calculerPrix();
+      });
+    });
+
+    // Mise à jour du prix quand on coche/décoche le supplément
+    checkboxSupplement.addEventListener('change', () => {
+      calculerPrix();
+    });
+
+    // Initialiser le prix au chargement (au cas où)
+    calculerPrix();
+  });
+</script>
+
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const packsData = {
+    citadine: [
+      { nom: "Pack Bronze", prix: 60, details: "Lavage extérieur + jantes" },
+      { nom: "Pack Gold", prix: 75, details: "Extérieur + intérieur complet + vitres" },
+      { nom: "Pack Concession", prix: 85, details: "Lustrage + soin complet + finitions pro" }
+    ],
+    berline: [
+      { nom: "Pack Bronze", prix: 75, details: "Lavage extérieur + jantes" },
+      { nom: "Pack Gold", prix: 90, details: "Extérieur + intérieur complet + vitres" },
+      { nom: "Pack Concession", prix: 105, details: "Lustrage + soin complet + finitions pro" }
+    ],
+    utilitaire: [
+      { nom: "Pack Bronze", prix: 95, details: "Lavage extérieur + jantes" },
+      { nom: "Pack Gold", prix: 115, details: "Extérieur + intérieur complet + vitres" },
+      { nom: "Pack Concession", prix: 135, details: "Lustrage + soin complet + finitions pro" }
+    ]
+  };
+
+  const categorieContainer = document.getElementById('choix-categorie');
+  const packsContainer = document.getElementById('packs-container');
+  const prixTotalEl = document.getElementById('prix-total');
+  const inputCategorie = document.getElementById('categorie');
+  const prixTotalHidden = document.getElementById('prix_total_hidden');
+
+  // Quand on clique sur une catégorie
+  document.querySelectorAll('.categorie-option').forEach(cat => {
+    cat.addEventListener('click', () => {
+      document.querySelectorAll('.categorie-option').forEach(c => c.classList.remove('selected'));
+      cat.classList.add('selected');
+      const categorie = cat.dataset.categorie;
+      afficherPacks(categorie);
+    });
+  });
+
+  // Affiche les packs pour une catégorie
+  function afficherPacks(categorie) {
+    packsContainer.innerHTML = `
+      <h3>Choisissez votre pack :</h3>
+      <div class="packs-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px;">
+        ${packsData[categorie].map(pack => `
+          <div class="pack-option" 
+               data-nom="${pack.nom}" 
+               data-prix="${pack.prix}" 
+               style="border:1px solid var(--gold); border-radius:10px; padding:15px; text-align:center; cursor:pointer;">
+            <h4 style="color:var(--gold); margin-bottom:8px;">${pack.nom}</h4>
+            <p style="font-size:0.95rem; color:#333;">${pack.details}</p>
+            <strong style="display:block; margin-top:10px; color:var(--black);">${pack.prix} €</strong>
+          </div>
+        `).join('')}
+      </div>
+    `;
+
+    document.querySelectorAll('.pack-option').forEach(pack => {
+      pack.addEventListener('click', () => {
+        document.querySelectorAll('.pack-option').forEach(p => p.style.background = '');
+        pack.style.background = 'var(--gold)';
+        pack.style.color = 'white';
+        const packNom = pack.dataset.nom;
+        const packPrix = parseFloat(pack.dataset.prix);
+
+        // Mise à jour des champs cachésc
+        inputCategorie.value = `${categorie} - ${packNom}`;
+        prixTotalEl.textContent = packPrix + " €";
+        prixTotalHidden.value = packPrix;
+      });
+    });
+  }
+});
+</script>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const packsData = {
+    citadine: [
+      { nom: "Pack Bronze", prix: 45, details: "Nettoyage des surfaces, des tapis, ainsi que le plancher" },
+      { nom: "Pack Gold", prix: 65, details: "Nettoyage des surfaces, des tapis, ainsi que le plancher + les sièges" },
+      { nom: "Pack Concession", prix: 85, details: "Nettoyage des surfaces, des tapis, ainsi que le plancher, les sièges + le coffre" }
+    ],
+    berline: [
+      { nom: "Pack Bronze", prix: 55, details: "Nettoyage des surfaces, des tapis, ainsi que le plancher" },
+      { nom: "Pack Gold", prix: 75, details: "Nettoyage des surfaces, des tapis, ainsi que le plancher + les sièges" },
+      { nom: "Pack Concession", prix: 95, details: "Nettoyage des surfaces, des tapis, ainsi que le plancher, les sièges + le coffre" }
+    ],
+    utilitaire: [
+      { nom: "Pack Bronze", prix: 70, details: "Nettoyage des surfaces, des tapis, ainsi que le plancher" },
+      { nom: "Pack Gold", prix: 95, details: "Nettoyage des surfaces, des tapis, ainsi que le plancher + les sièges" },
+      { nom: "Pack Concession", prix: 110, details: "Nettoyage des surfaces, des tapis, ainsi que le plancher, les sièges + le coffre" }
+    ]
+  };
+
+  const prixSupplement = 15; // supplément extérieur
+  const prixTotalEl = document.getElementById('prix-total');
+  const inputCategorie = document.getElementById('categorie');
+  const prixTotalHidden = document.getElementById('prix_total_hidden');
+  const checkboxSupplement = document.querySelector('input[name="supplement_exterieur"]');
+
+  let prixSelectionne = 0; // garde le prix du pack sélectionné
+
+  // Gestion des catégories
+  document.querySelectorAll('.categorie-option').forEach(cat => {
+    cat.addEventListener('click', () => {
+      const bloc = cat.parentElement;
+      const packsContainer = bloc.querySelector('.packs-container');
+      
+      // Fermer les autres sous-catégories
+      document.querySelectorAll('.packs-container').forEach(p => {
+        if (p !== packsContainer) p.style.display = 'none';
+      });
+
+      // Toggle d’affichage
+      packsContainer.style.display = (packsContainer.style.display === 'none' || packsContainer.style.display === '') 
+        ? 'block' : 'none';
+
+      // Générer les packs si vide
+      if (packsContainer.innerHTML.trim() === '') {
+        afficherPacks(cat.dataset.categorie, packsContainer);
+      }
+    });
+  });
+
+  // Génération dynamique des packs
+  function afficherPacks(categorie, container) {
+    container.innerHTML = `
+      <div class="packs-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px;">
+        ${packsData[categorie].map(pack => `
+          <div class="pack-option" 
+               data-nom="${pack.nom}" 
+               data-prix="${pack.prix}" 
+               style="border:1px solid var(--gold); border-radius:10px; padding:15px; text-align:center; cursor:pointer; background:white;">
+            <h4 style="color:var(--gold); margin-bottom:8px;">${pack.nom}</h4>
+            <p style="font-size:0.95rem; color:#333;">${pack.details}</p>
+            <strong style="display:block; margin-top:10px; color:var(--black);">${pack.prix} €</strong>
+          </div>
+        `).join('')}
+      </div>
+    `;
+
+    container.querySelectorAll('.pack-option').forEach(pack => {
+      pack.addEventListener('click', () => {
+        // désélectionner tous les packs
+        container.querySelectorAll('.pack-option').forEach(p => {
+          p.style.background = 'white';
+          p.style.color = 'black';
+        });
+        // sélectionner le pack cliqué
+        pack.style.background = 'var(--gold)';
+        pack.style.color = 'white';
+
+        const packNom = pack.dataset.nom;
+        const packPrix = parseFloat(pack.dataset.prix);
+        prixSelectionne = packPrix; // mémoriser le prix du pack
+
+        inputCategorie.value = categorie + ' - ' + packNom;
+
+        // Mettre à jour le prix total
+        majPrixTotal();
+      });
+    });
+  }
+
+  // Fonction pour recalculer le prix total
+  function majPrixTotal() {
+    let total = prixSelectionne;
+    if (checkboxSupplement.checked) {
+      total += prixSupplement;
+    }
+    prixTotalEl.textContent = total + " €";
+    prixTotalHidden.value = total;
+  }
+
+  // Quand on coche / décoche le supplément
+  checkboxSupplement.addEventListener('change', majPrixTotal);
+});
+</script>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const inputDate = document.getElementById('date-lavage');
+  const heureSelect = document.getElementById('heure-lavage');
+  if (!inputDate || !heureSelect) return;
+
+  // 🔸 DATES + HEURES disponibles
+const disponibilites = {
+ "2025-10-28": ["8:30", "11:30", "14:30", "17:30", "20:30"],
+  "2025-10-29": ["11:30", "14:30"],
+  "2025-10-30": ["8:30", "20:30"],
+  "2025-10-31": ["8:30", "11:30", "14:30"],
+  "2025-11-01": ["8:30", "20:30"],
+  "2025-11-02": ["8:30", "17:30", "20:30"],
+  "2025-11-03": ["17:30", "20:30"],
+  "2025-11-04": ["17:30", "20:30"],
+  "2025-11-08": ["8:30", "14:30"]
+};
+
+  // --- Crée la popup pour afficher les dates
+  let popup = document.createElement('div');
+  popup.id = 'popup-dispos';
+  popup.style.position = 'absolute';
+  popup.style.background = 'white';
+  popup.style.border = '1px solid var(--gold)';
+  popup.style.borderRadius = '8px';
+  popup.style.boxShadow = '0 4px 10px rgba(0,0,0,0.15)';
+  popup.style.padding = '10px';
+  popup.style.display = 'none';
+  popup.style.zIndex = '9999';
+  document.body.appendChild(popup);
+
+  // 🔹 Remplir la popup avec les dates disponibles
+  for (const [date, heures] of Object.entries(disponibilites)) {
+    const d = new Date(date + 'T00:00:00');
+    const label = d.toLocaleDateString('fr-FR', { weekday: 'short', month: 'short', day: 'numeric' });
+    const btn = document.createElement('button');
+    btn.textContent = label;
+    btn.dataset.date = date;
+    btn.style.display = 'block';
+    btn.style.width = '100%';
+    btn.style.background = 'white';
+    btn.style.border = '1px solid var(--gold)';
+    btn.style.borderRadius = '6px';
+    btn.style.padding = '8px';
+    btn.style.margin = '4px 0';
+    btn.style.cursor = 'pointer';
+    btn.style.fontWeight = '500';
+    btn.addEventListener('mouseenter', () => btn.style.background = '#fff5d7');
+    btn.addEventListener('mouseleave', () => btn.style.background = 'white');
+
+    btn.addEventListener('click', () => {
+      // 🟡 Met la date dans le champ
+      inputDate.value = date;
+
+      // 🟡 Remplit le menu d'heures pour cette date
+      remplirHeures(heures);
+
+      // Ferme la popup
+      popup.style.display = 'none';
+
+      // Émet un event "change" si besoin
+      inputDate.dispatchEvent(new Event('change', { bubbles: true }));
+    });
+
+    popup.appendChild(btn);
+  }
+
+  // 🔹 Ouvre la popup à la position du champ
+  inputDate.addEventListener('click', (e) => {
+    const rect = inputDate.getBoundingClientRect();
+    popup.style.top = `${rect.bottom + window.scrollY + 5}px`;
+    popup.style.left = `${rect.left + window.scrollX}px`;
+    popup.style.minWidth = `${rect.width}px`;
+    popup.style.display = 'block';
+  });
+
+  // 🔹 Ferme la popup si on clique ailleurs
+  document.addEventListener('click', (e) => {
+    if (!popup.contains(e.target) && e.target !== inputDate) {
+      popup.style.display = 'none';
+    }
+  });
+
+  // 🕒 Fonction pour remplir le menu d’heures selon la date choisie
+ function remplirHeures(heures) {
+  heureSelect.innerHTML = '';
+  if (!heures || heures.length === 0) {
+    heureSelect.innerHTML = '<option value="">Aucune heure dispo ce jour</option>';
+    return;
+  }
+  heureSelect.innerHTML = '<option value="">Choisissez une heure</option>';
+  heures.forEach(h => {
+    const option = document.createElement('option');
+    option.value = h;
+    option.textContent = h;
+    heureSelect.appendChild(option);
+  });
+}
+
+});
+</script>
+<script>
+window.addEventListener("scroll", () => {
+  const navbar = document.querySelector(".nav-bar");
+  if (window.scrollY > 60) {
+    navbar.classList.add("scrolled");
+  } else {
+    navbar.classList.remove("scrolled");
+  }
+});
+</script>
+
+
+
+
+
+
+</body>
+</html>
+
