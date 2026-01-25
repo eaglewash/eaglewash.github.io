@@ -1,6 +1,26 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Redirection automatique</title>
+  <script>
+    // Détection simple du type d'appareil
+    const isMobile = /Android|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i
+      .test(navigator.userAgent);
+
+    // Redirection selon l'appareil
+    if (isMobile) {
+      window.location.replace("mobile/index.html");
+    } else {
+      window.location.replace("desktop/index.html");
+    }
+  </script>
+</head>
+ 
+
+
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-QV8FN8938V"></script>
   <script>
