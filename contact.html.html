@@ -80,7 +80,7 @@ nav.topbar-nav a::after {
   height: 1.5px;
   background-color: var(--white);
   transition: all 0.3s ease;
-  transform: translateX(-50%);
+  transform: translateX(-100%);
 }
 
 nav.topbar-nav a:hover {
@@ -725,7 +725,30 @@ label span a {
     font-size: 0.8rem;
   }
 }
+input[type="radio"] {
+  accent-color: var(--gold);
+}
+.nav-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 25px 60px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  backdrop-filter: blur(12px);
+  background: rgba(17,17,17,0.45);
+  border-bottom: 1px solid rgba(212,175,55,0.3);
+  z-index: 1000;
+  transition: all 0.4s ease; /* transition pour mouvement fluide */
+}
 
+/* Quand on scroll vers le bas, la navbar disparait */
+.nav-bar.hide {
+  transform: translateY(-120%); /* remonte hors écran */
+  opacity: 0;
+}
 
 
   </style>
@@ -819,40 +842,46 @@ Nous vous répondrons rapidement afin de planifier votre <strong>intervention à
       <input type="ville" name="ville" placeholder="La ville où se situe l'adresse ci-dessus" required />
       <br>
   </br>
-   <div style="display: flex; justify-content: center; margin-bottom: 15px;">
-  <div style="border: 2px solid var(--gold); padding: 15px; border-radius: 8px; background-color: #fff; max-width: 400px; width: 100%;">
-    <!-- Sélection de la date -->
-    <label for="date-lavage" style="display:block; font-weight:bold; color:var(--gold); margin-bottom:8px; font-size:1.1rem; text-align:center;">
-      📅 Date souhaitée pour le lavage
-    </label>
-    <input 
-      type="date" 
-      id="date-lavage" 
-      name="date" 
-      required 
-      style="padding: 12px; border: 1px solid var(--gold); border-radius: 6px; width: 100%; font-size: 1rem; background-color: #fdfdfd; color: #333; margin-bottom:15px;"
-    >
+  <h3>⏱️ Niveau d'urgence</h3>
 
-   <!-- Sélection de l'heure -->
-<label for="heure-lavage" style="display:block; font-weight:bold; color:var(--gold); margin-bottom:8px; font-size:1.1rem; text-align:center;">
-  ⏰ Heure souhaitée
-</label>
-<select 
-  id="heure-lavage" 
-  name="heure" 
-  required 
-  style="padding: 12px; border: 1px solid var(--gold); border-radius: 6px; width: 100%; font-size: 1rem; background-color: #fdfdfd; color: #333;">
-  <option value="">Sélectionnez d’abord une date</option>
-</select>
+<div style="
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  margin: 20px 0;
+  flex-wrap: wrap;
+">
 
+  <label style="
+    border: 2px solid var(--gold);
+    padding: 15px 20px;
+    border-radius: 10px;
+    cursor: pointer;
+    background: white;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  ">
+    <input type="radio" name="urgence" value="Urgence particulière" required>
+    🚨 Urgence particulière
+  </label>
 
-    <!-- Texte explicatif -->
-    <p style="color:#777; font-size:0.9rem; margin-top:8px; text-align:center;">
-      Sélectionnez la date et l'heure auxquelles vous souhaitez que le lavage soit effectué.
-    </p>
+  <label style="
+    border: 2px solid var(--gold);
+    padding: 15px 20px;
+    border-radius: 10px;
+    cursor: pointer;
+    background: white;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  ">
+    <input type="radio" name="urgence" value="Pas d'urgence particulière" required>
+    ⏳ Pas d'urgence particulière
+  </label>
 
-  </div>
 </div>
+
 
       <input type="hidden" name="categorie" id="categorie" required />
     <h3>Choisissez votre catégorie :</h3>
@@ -1269,67 +1298,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const heureSelect = document.getElementById('heure-lavage');
   if (!inputDate || !heureSelect) return;
 
-  // 🔸 DATES + HEURES disponibles
-const disponibilites = {
-  "2025-11-12": ["17:30", "20:30"],
-  "2025-11-14": [ "11:30", "14:30"],
-  "2025-11-22": ["14:45"],
-  "2025-11-23": ["10:45", "14:00"],
-  "2025-11-29": ["14:45"]
-
-
-
-
-};
-
-  // --- Crée la popup pour afficher les dates
-  let popup = document.createElement('div');
-  popup.id = 'popup-dispos';
-  popup.style.position = 'absolute';
-  popup.style.background = 'white';
-  popup.style.border = '1px solid var(--gold)';
-  popup.style.borderRadius = '8px';
-  popup.style.boxShadow = '0 4px 10px rgba(0,0,0,0.15)';
-  popup.style.padding = '10px';
-  popup.style.display = 'none';
-  popup.style.zIndex = '9999';
-  document.body.appendChild(popup);
-
-  // 🔹 Remplir la popup avec les dates disponibles
-  for (const [date, heures] of Object.entries(disponibilites)) {
-    const d = new Date(date + 'T00:00:00');
-    const label = d.toLocaleDateString('fr-FR', { weekday: 'short', month: 'short', day: 'numeric' });
-    const btn = document.createElement('button');
-    btn.textContent = label;
-    btn.dataset.date = date;
-    btn.style.display = 'block';
-    btn.style.width = '100%';
-    btn.style.background = 'white';
-    btn.style.border = '1px solid var(--gold)';
-    btn.style.borderRadius = '6px';
-    btn.style.padding = '8px';
-    btn.style.margin = '4px 0';
-    btn.style.cursor = 'pointer';
-    btn.style.fontWeight = '500';
-    btn.addEventListener('mouseenter', () => btn.style.background = '#fff5d7');
-    btn.addEventListener('mouseleave', () => btn.style.background = 'white');
-
-    btn.addEventListener('click', () => {
-      // 🟡 Met la date dans le champ
-      inputDate.value = date;
-
-      // 🟡 Remplit le menu d'heures pour cette date
-      remplirHeures(heures);
-
-      // Ferme la popup
-      popup.style.display = 'none';
-
-      // Émet un event "change" si besoin
-      inputDate.dispatchEvent(new Event('change', { bubbles: true }));
-    });
-
-    popup.appendChild(btn);
-  }
+  
 
   // 🔹 Ouvre la popup à la position du champ
   inputDate.addEventListener('click', (e) => {
@@ -1363,9 +1332,6 @@ const disponibilites = {
   });
 }
 
-});
-</script>
-<script>
 window.addEventListener("scroll", () => {
   const navbar = document.querySelector(".nav-bar");
   if (window.scrollY > 60) {
@@ -1373,6 +1339,25 @@ window.addEventListener("scroll", () => {
   } else {
     navbar.classList.remove("scrolled");
   }
+});
+
+});
+
+let lastScroll = 0;
+const navbar = document.querySelector(".nav-bar");
+
+window.addEventListener("scroll", () => {
+  const currentScroll = window.scrollY;
+
+  if (currentScroll > lastScroll && currentScroll > 100) {
+    // Scroll vers le bas → cacher la navbar
+    navbar.classList.add("hide");
+  } else {
+    // Scroll vers le haut → montrer la navbar
+    navbar.classList.remove("hide");
+  }
+
+  lastScroll = currentScroll;
 });
 </script>
 

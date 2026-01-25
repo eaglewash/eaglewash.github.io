@@ -80,7 +80,7 @@ nav.topbar-nav a::after {
   height: 1.5px;
   background-color: var(--white);
   transition: all 0.3s ease;
-  transform: translateX(-50%);
+  transform: translateX(-100%);
 }
 
 nav.topbar-nav a:hover {
@@ -847,7 +847,27 @@ label span a {
     font-size: 0.8rem;
   }
 }
+.nav-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 25px 60px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  backdrop-filter: blur(12px);
+  background: rgba(17,17,17,0.45);
+  border-bottom: 1px solid rgba(212,175,55,0.3);
+  z-index: 1000;
+  transition: all 0.4s ease; /* transition pour mouvement fluide */
+}
 
+/* Quand on scroll vers le bas, la navbar disparait */
+.nav-bar.hide {
+  transform: translateY(-120%); /* remonte hors écran */
+  opacity: 0;
+}
 
 
 
@@ -902,6 +922,8 @@ label span a {
       Je m'appelle Quentin, passionné par le soin automobile et le service client. Après une decouverte dans le secteur du detailing il y a maintenant un an, j’ai décidé de fonder Eagle Wash avec la volonté de proposer un service pratique, fiable et qualitatif. Mon objectif est simple : redonner à votre véhicule tout son éclat, sans que vous ayez à vous déplacer.
     </p>
   </div>
+
+  
 </section>
 
       <!-- Start of OpenWidget (www.openwidget.com) code -->
@@ -959,17 +981,26 @@ label span a {
 
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-..." crossorigin="anonymous" referrerpolicy="no-referrer" />
-<script>
-window.addEventListener("scroll", () => {
-  const navbar = document.querySelector(".nav-bar");
-  if (window.scrollY > 60) {
-    navbar.classList.add("scrolled");
-  } else {
-    navbar.classList.remove("scrolled");
-  }
-});
-</script>
 
+<script>
+let lastScroll = 0;
+const navbar = document.querySelector(".nav-bar");
+
+window.addEventListener("scroll", () => {
+  const currentScroll = window.scrollY;
+
+  if (currentScroll > lastScroll && currentScroll > 100) {
+    // Scroll vers le bas → cacher la navbar
+    navbar.classList.add("hide");
+  } else {
+    // Scroll vers le haut → montrer la navbar
+    navbar.classList.remove("hide");
+  }
+
+  lastScroll = currentScroll;
+});
+
+</script>
 
 </body>
 </html>
